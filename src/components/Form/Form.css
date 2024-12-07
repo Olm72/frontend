@@ -1,48 +1,68 @@
-.form {
+.form-container {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
     max-width: 400px;
     margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.form-group {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .form-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-container h2 {
+    color: var(--text-color);
+    text-align: center;
     margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-control {
+  }
+  
+  .form-container input {
     width: 100%;
     padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
+    margin: 8px 0;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
-    transition: border-color 0.3s ease-in-out;
-}
-
-.form-control:focus {
-    border-color: #4caf50;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .form-container input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
     outline: none;
-}
-
-.is-invalid {
-    border-color: #f44336;
-}
-
-.form-error {
-    color: #f44336;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-container input.is-invalid {
+    border-color: var(--error-color);
+    box-shadow: 0 0 5px var(--error-color);
+  }
+  
+  .form-container .error-message {
+    color: var(--error-color);
     font-size: 14px;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-}
+    margin-top: -8px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .form-container button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .form-container button:hover {
+    background-color: var(--secondary-color);
+    transition: background-color 0.3s ease;
+  }
+  
