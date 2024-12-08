@@ -1,88 +1,93 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import "./Form.css";
-import Button from "../Button/Button";
-
 
 const Form = ({ onSubmit }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    name: "",
+    phone: "",
+  });
   const [errors, setErrors] = useState({});
 
-  const handleValidation = () => {
-    const tempErrors = {};
-    let isValid = true;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-    if (!email) {
-      tempErrors.email = "El correo electrónico es obligatorio.";
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      tempErrors.email = "Introduce un correo electrónico válido.";
-      isValid = false;
-    }
-
-    if (!password) {
-      tempErrors.password = "La contraseña es obligatoria.";
-      isValid = false;
-    } else if (password.length < 6) {
-      tempErrors.password = "La contraseña debe tener al menos 6 caracteres.";
-      isValid = false;
-    }
-
-    setErrors(tempErrors);
-    return isValid;
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.email) newErrors.email = "El correo electrónico es obligatorio.";
+    if (!formData.password) newErrors.password = "La contraseña es obligatoria.";
+    if (!formData.name) newErrors.name = "El nombre es obligatorio.";
+    if (!formData.phone) newErrors.phone = "El teléfono es obligatorio.";
+    else if (!/^\d+$/.test(formData.phone))
+      newErrors.phone = "El teléfono solo debe contener números.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (handleValidation()) {
-      onSubmit({ email, password });
+    if (validate()) {
+      onSubmit(formData);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form">
+    <form className="form-container" onSubmit={handleSubmit}>
+      <h2>Formulario</h2>
+      <div className="form-group">
+        <label htmlFor="name">Nombre</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          className={`form-control ${errors.name ? "is-invalid" : ""}`}
+        />
+        {errors.name && <div className="form-error">{errors.name}</div>}
+      </div>
       <div className="form-group">
         <label htmlFor="email">Correo Electrónico</label>
         <input
           type="email"
           id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
           className={`form-control ${errors.email ? "is-invalid" : ""}`}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          aria-describedby="emailError"
         />
-        {errors.email && (
-          <small id="emailError" className="form-error">
-            {errors.email}
-          </small>
-        )}
+        {errors.email && <div className="form-error">{errors.email}</div>}
       </div>
-
       <div className="form-group">
         <label htmlFor="password">Contraseña</label>
         <input
           type="password"
           id="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
           className={`form-control ${errors.password ? "is-invalid" : ""}`}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          aria-describedby="passwordError"
         />
-        {errors.password && (
-          <small id="passwordError" className="form-error">
-            {errors.password}
-          </small>
-        )}
+        {errors.password && <div className="form-error">{errors.password}</div>}
       </div>
-
-      <Button text="Enviar" type="primary" onClick={handleSubmit} />
+      <div className="form-group">
+        <label htmlFor="phone">Teléfono</label>
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          className={`form-control ${errors.phone ? "is-invalid" : ""}`}
+        />
+        {errors.phone && <div className="form-error">{errors.phone}</div>}
+      </div>
+      <button type="submit">Enviar</button>
     </form>
   );
-};
-
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Form;

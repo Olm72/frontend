@@ -1,14 +1,32 @@
 import React from "react";
-import Button from "./components/Button/Button";
-import Form from "./components/Form/Form";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
 import "./App.css";
 
+
+const ProtectedRoute = ({ component: Component }) => {
+  return localStorage.getItem("token") ? <Component /> : <Navigate to="/login" replace />;
+};
+  
 const App = () => {
   const handleButtonClick = (type) => {
     alert(`Botón ${type} presionado`);
   };
 
+const App = () => {
   return (
+
+    <Router>
+      <div className="app-container">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </div>
+    </Router>
+
     <div className="app-container">
       <header className="app-header">
         <h1>Prueba de Componentes</h1>
@@ -47,6 +65,7 @@ const App = () => {
         <p>Pruebas de UI © 2024</p>
       </footer>
     </div>
+
   );
 };
 
