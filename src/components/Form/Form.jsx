@@ -3,28 +3,46 @@ import "./Form.css";
 
 const Form = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
-    name: "",
     phone: "",
   });
-  const [errors, setErrors] = useState({});
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const [errors, setErrors] = useState({});
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.email) newErrors.email = "El correo electrónico es obligatorio.";
-    if (!formData.password) newErrors.password = "La contraseña es obligatoria.";
-    if (!formData.name) newErrors.name = "El nombre es obligatorio.";
-    if (!formData.phone) newErrors.phone = "El teléfono es obligatorio.";
-    else if (!/^\d+$/.test(formData.phone))
-      newErrors.phone = "El teléfono solo debe contener números.";
+
+    if (!formData.name || formData.name.length < 3) {
+      newErrors.name = "El nombre debe tener al menos 3 caracteres.";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Por favor, introduce un correo válido.";
+    }
+
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    if (!passwordRegex.test(formData.password)) {
+      newErrors.password =
+        "La contraseña debe tener al menos 6 caracteres, incluyendo una letra y un número.";
+    }
+
+    const phoneRegex = /^\d{9}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = "El teléfono debe tener exactamente 9 dígitos.";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
@@ -37,6 +55,7 @@ const Form = ({ onSubmit }) => {
   return (
     <form className="form-container" onSubmit={handleSubmit}>
       <h2>Formulario</h2>
+
       <div className="form-group">
         <label htmlFor="name">Nombre</label>
         <input
@@ -45,10 +64,10 @@ const Form = ({ onSubmit }) => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className={`form-control ${errors.name ? "is-invalid" : ""}`}
         />
-        {errors.name && <div className="form-error">{errors.name}</div>}
+        {errors.name && <p className="error-message">{errors.name}</p>}
       </div>
+
       <div className="form-group">
         <label htmlFor="email">Correo Electrónico</label>
         <input
@@ -57,10 +76,10 @@ const Form = ({ onSubmit }) => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className={`form-control ${errors.email ? "is-invalid" : ""}`}
         />
-        {errors.email && <div className="form-error">{errors.email}</div>}
+        {errors.email && <p className="error-message">{errors.email}</p>}
       </div>
+
       <div className="form-group">
         <label htmlFor="password">Contraseña</label>
         <input
@@ -69,10 +88,10 @@ const Form = ({ onSubmit }) => {
           name="password"
           value={formData.password}
           onChange={handleChange}
-          className={`form-control ${errors.password ? "is-invalid" : ""}`}
         />
-        {errors.password && <div className="form-error">{errors.password}</div>}
+        {errors.password && <p className="error-message">{errors.password}</p>}
       </div>
+
       <div className="form-group">
         <label htmlFor="phone">Teléfono</label>
         <input
@@ -81,10 +100,10 @@ const Form = ({ onSubmit }) => {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className={`form-control ${errors.phone ? "is-invalid" : ""}`}
         />
-        {errors.phone && <div className="form-error">{errors.phone}</div>}
+        {errors.phone && <p className="error-message">{errors.phone}</p>}
       </div>
+
       <button type="submit">Enviar</button>
     </form>
   );

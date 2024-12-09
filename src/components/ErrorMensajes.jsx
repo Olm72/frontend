@@ -13,4 +13,4 @@ const ErrorMensajes = ({titulo, descripcion, tranquilidad, solucion, alternativa
     );
 };
 
-export default MensajesError;
+export default ErrorMensajes;
