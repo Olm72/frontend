@@ -6,33 +6,93 @@
   }
   
   /* Header */
-  .home-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1A3E5C;
-    padding: 20px;
-    color: white;
-  }
+.home-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 5%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
   
   .logo {
-    height: 50px;
+    height: 60px;
+    font-size: 25px;
+    color: #f8f9fa; /* Color letras menú Nexeus */
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    width: auto;
+    margin-right: auto;
+    text-shadow: 0px 0px 5px #00fef5; /* Efecto neón "Nexeus" menú */
+    animation: zoomOut 1.3s ease forwards; /* Animación del logo del menú */
   }
-  
+
+  @keyframes zoomOut {
+    0% {
+        transform: scale(2);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1; /* Asegura que termine visible */
+    }
+}
+
+  .logo:hover {
+    color: #f8f9fa;
+  }
+
+  /* Menú */
+  .home-nav {
+    flex: 1; /* Ocupará todo el espacio entre el logo y el botón */
+    display: flex;
+    justify-content: center; /* Centra los elementos del menú */
+  }
+
   .home-nav ul {
     display: flex;
     list-style: none;
     gap: 15px;
+    margin: 0;
+    padding: 0;
   }
   
   .home-nav a {
-    color: white;
+    display: inline-block;
+    font-size: 18px;
+    color: #f8f9fa;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    margin: 0 20px;
+    transition: .3s; /* Tiempo que tardan en cambiar de color los elementos del menú cuando les pasas por encima con el ratón */
+    opacity: 0;
+    text-shadow: 0px 0px 5px #4A90E2; /* Efecto neón objetos menú */
+    animation: slideTop 1s ease forwards; /* Animación del los elementos del menú que no son el logo */
+    animation-delay: calc(.2s * var(--i));
   }
   
-  .home-nav a:hover {
-    text-decoration: underline;
+  @keyframes slideTop {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1; /* Asegura que termine visible */
+    }
+  }
+
+  .home-nav a:hover
+  .home-nav a.active {
+    color: #4A90E2;
+    text-shadow: 0px 0px 10px #4A90E2, 0px 0px 20px #4A90E2, 0px 0px 30px #4A90E2; /* Brillo aumentado */
+    transform: scale(1.1); /* Agranda ligeramente */
   }
   
   /* Hero Section */
