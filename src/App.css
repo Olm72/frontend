@@ -1,3 +1,18 @@
+/* Variables globales de colores */
+:root {
+  --azul-marino: #1A3E5C;
+  --azul-claro: #4A90E2;
+  --gris-claro: #F5F5F5;
+  --gris-oscuro: #4A4A4A;
+  --verde-esmeralda: #3CB371;
+
+  /* Ajustes específicos */
+  --background-color: var(--gris-claro); /* Fondo general */
+  --primary-color: var(--azul-marino);  /* Encabezados y navegación */
+  --text-color: var(--gris-oscuro);     /* Texto secundario */
+}
+
+/* Contenedor principal */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -5,11 +20,52 @@
   background-color: var(--background-color);
 }
 
+/* Header */
 .app-header {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Azul marino */
   color: white;
+  padding: 10px 20px;
+  position: fixed; /* Fija el header en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%; /* Asegura que el header ocupe todo el ancho */
+  z-index: 1000; /* Hace que el header esté por encima de otros elementos */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espacio entre contenido del header */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+.header-nav .nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav .nav-list li {
+  margin-left: 20px;
+}
+
+.header-nav .nav-list li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.header-nav .nav-list li a:hover {
+  text-decoration: underline;
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
-  text-align: center;
+  margin-top: 60px; /* Deja espacio para el header */
+  overflow: auto; 
 }
 
 .app-main {
@@ -42,11 +98,65 @@
 .button-group {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap; /* Permite que los botones se ajusten */
 }
 
+button {
+  flex: 1 1 auto; /* Los botones se expanden proporcionalmente */
+  margin: 5px;
+}
+
+/* Footer */
 .app-footer {
-  background-color: var(--text-color);
+  background-color: var(--primary-color); /* Azul marino */
   color: white;
   text-align: center;
   padding: 10px;
+  position: fixed; /* Fija el footer en la parte inferior */
+  bottom: 0;
+  left: 0; /* Eliminado margen lateral */
+  width: 100%; /* Footer ocupa todo el ancho */
+  z-index: 1000; /* Coloca el footer encima de otros elementos si es necesario */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-nav .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-nav .nav-list li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .main-content {
+    padding: 10px; /* Ajusta el espacio en pantallas pequeñas */
+    margin-top: 80px; /* Ajusta espacio para header responsivo */
+  }
+
+  .app-footer {
+    width: 100%; /* Footer ocupa todo el ancho */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-nav .nav-list li a {
+    font-size: 14px;
+  }
+
+  .button-group button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .app-footer {
+    width: 100%;
+  }
 }
