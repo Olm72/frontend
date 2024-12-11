@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Form.css";
+import ErrorMensajes from "../ErrorMensajes/ErrorMensajes";
 
 const Form = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ const Form = ({ onSubmit }) => {
     const newErrors = {};
 
     if (!formData.name || formData.name.length < 3) {
-      newErrors.name = "El nombre debe tener al menos 3 caracteres.";
+      newErrors.name = "El nombre debe tener al menos 3 letras.";
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -65,7 +66,7 @@ const Form = ({ onSubmit }) => {
           value={formData.name}
           onChange={handleChange}
         />
-        {errors.name && <p className="error-message">{errors.name}</p>}
+        {errors.name && <ErrorMensajes simpleMessage={errors.name} />}
       </div>
 
       <div className="form-group">
@@ -77,7 +78,7 @@ const Form = ({ onSubmit }) => {
           value={formData.email}
           onChange={handleChange}
         />
-        {errors.email && <p className="error-message">{errors.email}</p>}
+        {errors.email && <ErrorMensajes simpleMessage={errors.email} />}
       </div>
 
       <div className="form-group">
@@ -89,7 +90,7 @@ const Form = ({ onSubmit }) => {
           value={formData.password}
           onChange={handleChange}
         />
-        {errors.password && <p className="error-message">{errors.password}</p>}
+        {errors.password && <ErrorMensajes simpleMessage={errors.password} />}
       </div>
 
       <div className="form-group">
@@ -101,7 +102,7 @@ const Form = ({ onSubmit }) => {
           value={formData.phone}
           onChange={handleChange}
         />
-        {errors.phone && <p className="error-message">{errors.phone}</p>}
+        {errors.phone && <ErrorMensajes simpleMessage={errors.phone} />}
       </div>
 
       <button type="submit">Enviar</button>
