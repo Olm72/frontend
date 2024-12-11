@@ -10,6 +10,13 @@ const Form = ({ onSubmit }) => {
     phone: "",
   });
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    phone: "",
+  });
+
   const [errors, setErrors] = useState({});
 
   const validate = () => {
@@ -44,10 +51,21 @@ const Form = ({ onSubmit }) => {
       ...formData,
       [e.target.name]: e.target.value,
     });
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (validate()) {
+      onSubmit(formData);
     if (validate()) {
       onSubmit(formData);
     }
@@ -74,6 +92,9 @@ const Form = ({ onSubmit }) => {
         <input
           type="email"
           id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
           name="email"
           value={formData.email}
           onChange={handleChange}
@@ -105,6 +126,7 @@ const Form = ({ onSubmit }) => {
         {errors.phone && <ErrorMensajes simpleMessage={errors.phone} />}
       </div>
 
+      <button type="submit">Enviar</button>
       <button type="submit">Enviar</button>
     </form>
   );
