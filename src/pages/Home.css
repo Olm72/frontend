@@ -50,7 +50,7 @@
 
   /* Menú */
   .home-nav {
-    flex: 1; /* Ocupará todo el espacio entre el logo y el botón */
+    flex: 1; 
     display: flex;
     justify-content: center; /* Centra los elementos del menú */
   }
