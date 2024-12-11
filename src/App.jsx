@@ -41,10 +41,11 @@ const App = () => {
           </Routes>
         </main>
 
-      <footer className="app-footer">
-        <p>Pruebas de IU Nexeus Big Data © 2024</p>
-      </footer>
-    </div>
+        <footer className="app-footer">
+          <p>Pruebas de IU Nexeus Big Data © 2024</p>
+        </footer>
+      </div> {/* Cierre correcto del div */}
+    </Router>
   );
 };
 
