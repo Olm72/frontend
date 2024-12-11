@@ -78,7 +78,7 @@ const App = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/error404" element={<Error404 />} />
               <Route path="/error500" element={<Error500 />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<Error404/>} />
             </Routes>
           </main>
 
