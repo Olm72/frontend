@@ -44,7 +44,7 @@ const App = () => {
       </main>
 
       <footer className="app-footer">
-        <p>Pruebas de UI © 2024</p>
+        <p>Pruebas de IU Nexeus Big Data © 2024</p>
       </footer>
     </div>
   );
