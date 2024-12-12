@@ -1,20 +1,25 @@
+/* Estilos generales de la página de error */
 .error-page {
   text-align: center;
   margin-top: 50px;
   padding: 20px;
   font-family: Arial, sans-serif;
-  color: var(--text-color); /* Usa el color general para texto */
-  background-color: var(--background-color); /* Fondo general */
-}
+  color: white; /* Usa el color general para texto */
+  background: url('/src/assets/images/error21.jpeg') no-repeat center center; /* Imagen de fondo */
+  background-size: 90%; /* Ajusta la imagen para que sea un poco más ancha */
+  height: 100vh; /* Hace que la página tenga la altura completa de la ventana */
+  width: 100vw; /* Asegura que ocupe todo el ancho de la ventana */
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+} 
 
 .error-page h1 {
-  font-size: 4rem;
+  font-size: 6rem;
   color: var(--verde-esmeralda); /* Usa el verde como color de acento */
 }
 
 .error-page p {
-  font-size: 1.5rem;
-  color: var(--text-color); /* Usa el color general para texto */
+  font-size: 2rem;
+  color: white; /* Usa el color general para texto */
 }
 
 .error-page a {
@@ -31,4 +36,20 @@
 
 .error-page a:hover {
   background-color: var(--azul-marino); /* Cambia al azul marino en hover */
+}
+
+.primary-button {
+  background-color: var(--secondary-color); /* Azul Claro */
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: var(--button-hover-color); /* Verde Esmeralda */
+  transform: scale(1.05);
 }
