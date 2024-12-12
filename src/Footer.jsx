@@ -12,15 +12,7 @@ const Header = () => {
             <div className="logo-container">
                 <img src={logo} alt="Nexeus Logo" className="logo" />
             </div>
-            <nav className="nav">
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/productos">Productos de Inteligencia Artificial</a></li>
-                    <li><a href="/expertos">Expertos</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/contacto">Contacto</a></li>
-                </ul>
-            </nav>
+            
             <div className="social-icons">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                     <img src={facebookIcon} alt="Facebook" />

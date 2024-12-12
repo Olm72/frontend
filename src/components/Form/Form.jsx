@@ -8,6 +8,7 @@ const Form = ({ onSubmit }) => {
     email: "",
     password: "",
     phone: "",
+    countryCode: "+34",
   });
 
   const [errors, setErrors] = useState({});
@@ -30,9 +31,10 @@ const Form = ({ onSubmit }) => {
         "La contraseña debe tener al menos 6 caracteres, incluyendo una letra y un número.";
     }
 
-    const phoneRegex = /^\d{9}$/;
-    if (!phoneRegex.test(formData.phone)) {
-      newErrors.phone = "El teléfono debe tener exactamente 9 dígitos.";
+    const fullPhoneNumber = `${formData.countryCode}${formData.phone}`;
+    const phoneRegex = /^\+\d{1,3}\d{7,12}$/; // Validar el número completo con el prefijo
+    if (!phoneRegex.test(fullPhoneNumber)) {
+      newErrors.phone = "Introduce un número de teléfono válido.";
     }
 
     setErrors(newErrors);
@@ -95,13 +97,28 @@ const Form = ({ onSubmit }) => {
 
       <div className="form-group">
         <label htmlFor="phone">Teléfono</label>
-        <input
-          type="text"
-          id="phone"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-        />
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <select
+            id="countryCode"
+            name="countryCode"
+            value={formData.countryCode}
+            onChange={handleChange}
+          >
+            <option value="+34">+34 (España)</option>
+            <option value="+1">+1 (EE.UU.)</option>
+            <option value="+44">+44 (Reino Unido)</option>
+            <option value="+91">+91 (India)</option>
+            {/* Agrega más prefijos */}
+          </select>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="Número de teléfono"
+            value={formData.phone}
+            onChange={handleChange}
+          />
+        </div>
         {errors.phone && <ErrorMensajes simpleMessage={errors.phone} />}
       </div>
 

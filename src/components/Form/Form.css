@@ -65,4 +65,23 @@
     background-color: var(--secondary-color);
     transition: background-color 0.3s ease;
   }
+
+  /* Prefijos */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .form-group select,
+  .form-group input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group select {
+    width: 100px; 
+  }
   

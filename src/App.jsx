@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Button from "./components/Button/Button";
 import Form from "./components/Form/Form";
 import Error404 from "./components/ErrorMensajes/Error404";
@@ -8,9 +8,11 @@ import Home from "./pages/Home";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import "./App.css";
+import logo from "./assets/images/nexeus-logo.png";
 
 const App = () => {
   const [theme, setTheme] = useState("light");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -18,21 +20,65 @@ const App = () => {
     document.documentElement.setAttribute("data-theme", newTheme);
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <Router>
       <div className="app-container">
         {/* Header Responsivo */}
         <header className="app-header">
-          <nav className="header-nav">
-            <ul className="nav-list">
+          {/* Logo y menú desplegable */}
+          <div className="header-left">
+            <Link to="/" className="logo-container">
+              <img src={logo} alt="Nexeus Logo" className="logo" />
+            </Link>
+            <nav className="dropdown-menu" onMouseLeave={closeMenu}>
+              <button className="menu-toggle" onClick={toggleMenu}>
+                ☰
+              </button>
+              {menuOpen && (
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard" onClick={closeMenu}>
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      className="theme-toggle-button"
+                      onClick={() => {
+                        toggleTheme();
+                        closeMenu();
+                      }}
+                    >
+                      {theme === "light" ? "Modo Oscuro" : "Modo Claro"}
+                    </button>
+                  </li>
+                </ul>
+              )}
+            </nav>
+          </div>
+
+          {/* Enlaces a la derecha */}
+          <nav className="header-right">
+            <ul className="nav-links">
               <li>
-                <Link to="/">Inicio</Link>
+                <Link to="/productos">Productos de IA</Link>
               </li>
               <li>
-                <Link to="/login">Login</Link>
+                <Link to="/expertos">Expertos</Link>
               </li>
               <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/blog">Blog</Link>
+              </li>
+              <li>
+                <Link to="/contacto">Contacto</Link>
               </li>
             </ul>
           </nav>
@@ -78,7 +124,7 @@ const App = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/error404" element={<Error404 />} />
               <Route path="/error500" element={<Error500 />} />
-              <Route path="*" element={<Error404/>} />
+              <Route path="*" element={<Error404 />} />
             </Routes>
           </main>
 
@@ -93,4 +139,3 @@ const App = () => {
 };
 
 export default App;
-

@@ -1,6 +1,5 @@
 import React from "react";
 import "./Home.css";
-import logo from "../assets/images/nexeus-logo.png";
 import headerImage from "../assets/images/ai-generated-8540915_1920.jpg";
 import featureImage from "../assets/images/technology-7111799_1920.jpg";
 import facebookIcon from "../assets/images/facebook.png";
@@ -10,34 +9,6 @@ import twitterIcon from "../assets/images/gorjeo.png";
 const Home = ({ toggleTheme, theme }) => {
   return (
     <div className="home-container">
-      {/* Sección del header */}
-      <header className="home-header">
-        <img src={logo} alt="Nexeus Logo" className="logo" />
-        <nav className="home-nav">
-          <ul>
-            <li><a href="#products">Productos</a></li>
-            <li><a href="#experts">Expertos</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contacto</a></li>
-          </ul>
-        </nav>
-        {/* Botón para cambiar el tema */}
-        <button
-          className="theme-toggle-button"
-          onClick={toggleTheme}
-          style={{
-            backgroundColor: "var(--primary-color)",
-            color: "var(--text-color)",
-            padding: "10px",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          Cambiar a {theme === "light" ? "Modo Oscuro" : "Modo Claro"}
-        </button>
-      </header>
-
       {/* Sección del Hero */}
       <section className="home-hero">
         <img src={headerImage} alt="Hero" className="hero-image" />
