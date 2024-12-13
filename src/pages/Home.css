@@ -3,44 +3,46 @@
   font-family: 'Roboto', sans-serif;
   color: #4A4A4A;
   line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que la página ocupe el 100% de la pantalla */
 }
 
 /* Header */
 .home-header {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-padding: 20px 5%;
-background: transparent;
-justify-content: space-between;
-align-items: center;
-z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 5%;
+  background: transparent;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
 }
-
 
 .logo {
   height: 60px;
   cursor: pointer;
   font-size: 25px;
-  color: #f8f9fa; /* Color letras menú Nexeus */
+  color: #f8f9fa;
   text-decoration: none;
   font-weight: 600;
   opacity: 0;
   width: auto;
   margin-right: auto;
-  text-shadow: 0px 0px 5px #00fef5; /* Efecto neón "Nexeus" menú */
-  animation: zoomOut 1.3s ease forwards; /* Animación del logo del menú */
+  text-shadow: 0px 0px 5px #00fef5;
+  animation: zoomOut 1.3s ease forwards;
 }
 
 @keyframes zoomOut {
   0% {
-      transform: scale(2);
-      opacity: 0;
+    transform: scale(2);
+    opacity: 0;
   }
   100% {
-      transform: translateX(0);
-      opacity: 1; /* Asegura que termine visible */
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -50,9 +52,9 @@ z-index: 100;
 
 /* Menú */
 .home-nav {
-  flex: 1; /* Ocupará todo el espacio entre el logo y el botón */
+  flex: 1;
   display: flex;
-  justify-content: center; /* Centra los elementos del menú */
+  justify-content: center;
 }
 
 .home-nav ul {
@@ -70,29 +72,29 @@ z-index: 100;
   text-decoration: none;
   font-weight: 500;
   margin: 0 20px;
-  transition: .3s; /* Tiempo que tardan en cambiar de color los elementos del menú cuando les pasas por encima con el ratón */
+  transition: 0.3s;
   opacity: 0;
-  text-shadow: 0px 0px 5px #4A90E2; /* Efecto neón objetos menú */
-  animation: slideTop 1s ease forwards; /* Animación del los elementos del menú que no son el logo */
-  animation-delay: calc(.2s * var(--i));
+  text-shadow: 0px 0px 5px #4A90E2;
+  animation: slideTop 1s ease forwards;
+  animation-delay: calc(0.2s * var(--i));
 }
 
 @keyframes slideTop {
   0% {
-      transform: translateY(-100px);
-      opacity: 0;
+    transform: translateY(-100px);
+    opacity: 0;
   }
   100% {
-      transform: translateY(0);
-      opacity: 1; /* Asegura que termine visible */
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-.home-nav a:hover
+.home-nav a:hover,
 .home-nav a.active {
   color: #4A90E2;
-  text-shadow: 0px 0px 10px #4A90E2, 0px 0px 20px #4A90E2, 0px 0px 30px #4A90E2; /* Brillo aumentado */
-  transform: scale(1.1); /* Agranda ligeramente */
+  text-shadow: 0px 0px 10px #4A90E2, 0px 0px 20px #4A90E2, 0px 0px 30px #4A90E2;
+  transform: scale(1.1);
 }
 
 /* Hero Section */
@@ -135,6 +137,7 @@ z-index: 100;
 .home-features {
   padding: 40px 20px;
   text-align: center;
+  flex: 1; /* Hace que esta sección ocupe el espacio disponible */
 }
 
 .feature img {
@@ -155,14 +158,26 @@ z-index: 100;
   color: white;
   text-align: center;
   padding: 20px;
+  margin-top: auto; /* Empuja el footer hacia la parte inferior */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
 }
 
 .social-links img {
   height: 30px;
   margin: 0 10px;
   cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .social-links img:hover {
   opacity: 0.8;
+  transform: scale(1.1);
 }
