@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import headerImage from "../assets/images/ai-generated-8540915_1920.jpg";
 import featureImage from "../assets/images/technology-7111799_1920.jpg";
@@ -12,7 +13,9 @@ const Home = ({ toggleTheme, theme }) => {
         <div className="hero-text">
           <h1>NEXEUS Big Data</h1>
           <p>Innovación en Inteligencia Artificial y análisis de datos.</p>
-          <button className="cta-button">Iniciar Sesión</button>
+          <Link to="/login">
+            <button className="cta-button">Iniciar Sesión</button>
+          </Link>
         </div>
       </section>
 

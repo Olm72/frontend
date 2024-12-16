@@ -1,3 +1,10 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 :root {
   --primary-color: #1A3E5C; /* Azul Marino */
   --secondary-color: #4A90E2; /* Azul Claro */
@@ -21,13 +28,15 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: 'Roboto', sans-serif;
 }
 
 .app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   background-color: var(--background-color);
 }
 
@@ -42,8 +51,10 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
+  max-width: 97.5%;
   z-index: 1000;
+  height: 60px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 25px; 
   border-bottom-right-radius: 25px; 
@@ -61,6 +72,8 @@ body {
 
 .nav-links {
   display: flex;
+  justify-content: center;
+  align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -167,9 +180,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px;
-  margin-top: 55px; /* Altura del header */
-  margin-bottom: 55px; /* Altura del footer */
+  padding: 0px;
+  margin-top: 10px; /* Altura del header */
+  margin-bottom: 0px; /* Altura del footer */
+  overflow: hidden;
   overflow-y: auto; 
   overflow-x: hidden;
   position: relative; 
@@ -180,7 +194,7 @@ body {
 
 .app-main {
   flex: 1;
-  padding: 40px 20px;
+  padding: 0px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -227,9 +241,9 @@ body {
 
 /* Footer */
 .app-footer {
+  display: flex;
   background-color: var(--primary-color);
   color: white;
-  display: flex;
   justify-content: space-between; 
   align-items: center; 
   padding: 10px 20px; 
@@ -237,9 +251,10 @@ body {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
+  max-width: 97.5%;
   z-index: 1000;
-  height: 70px;
+  height: 60px;
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1); 
   border-top-left-radius: 25px;
   border-top-right-radius: 25px; 
@@ -250,9 +265,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px;
-  margin-top: 60px;
-  margin-bottom: 80px; 
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px; 
 }
 
 .app-container {
@@ -266,6 +281,7 @@ body {
   display: flex;
   gap: 15px;
   justify-content: end;
+  align-items: center;
 }
 
 .social-links img {
@@ -291,4 +307,80 @@ body {
 
 .main-content::-webkit-scrollbar-thumb:hover {
   background: var(--secondary-color); /* Color al pasar el cursor */
+}
+
+
+
+
+
+/* Estilos login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+.login-form {
+  background: rgba(255, 255, 255, 0.4); /* Fondo translúcido */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0px 0px 5px var(--secondary-color);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: var(--accent-color);
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  text-align: center;
 }

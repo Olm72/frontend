@@ -7,6 +7,9 @@ import Error500 from "./components/ErrorMensajes/Error500";
 import Home from "./pages/Home";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import Productos from "./pages/Productos";
+import Expertos from "./pages/Expertos";
+import Blog from "./pages/Blog";
 import "./App.css";
 import logo from "./assets/images/nexeus-logo.png";
 import facebookIcon from "./assets/images/facebook.png";
@@ -30,6 +33,7 @@ const App = () => {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+
 
   return (
     <Router>
@@ -128,6 +132,9 @@ const App = () => {
               <Route path="/error404" element={<Error404 />} />
               <Route path="/error500" element={<Error500 />} />
               <Route path="*" element={<Error404 />} />
+              <Route path="/productos" element={<Productos />} />
+              <Route path="/expertos" element={<Expertos />} />
+              <Route path="/blog" element={<Blog />} />
             </Routes>
           </main>
         </div>
