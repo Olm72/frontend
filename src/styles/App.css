@@ -3,16 +3,30 @@ html, body {
   padding: 0;
   height: 100%;
   overflow: hidden;
+  font-family: 'Roboto', sans-serif; /* Fuente principal */
+  text-decoration: none;
+  list-style: none;
 }
 
 :root {
-  --primary-color: #1A3E5C; /* Azul Marino */
-  --secondary-color: #4A90E2; /* Azul Claro */
-  --background-color: #F5F5F5; /* Gris Claro */
-  --text-color: #4A4A4A; /* Gris Oscuro */
-  --accent-color: #3CB371; /* Verde Esmeralda */
+  --primary-color: #1A3E5C; /* Azul marino */
+  --secondary-color: #4A90E2; /* Azul claro */
+  --accent-color: #3CB371; /* Verde */
+  --background-color: #F5F5F5; /* Gris claro */
+  --text-color: #4A4A4A; /* Texto gris oscuro */
+  --hover-color: #4A90E2; /* Azul Hover */
+  --neon-color: #89b9f0; /* Neón azul */
   --border-color: #ccc;
   --button-hover-color: #3CB371;
+}
+
+/* General */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Evita el scroll horizontal */
 }
 
 [data-theme="dark"] {
@@ -56,7 +70,7 @@ body {
   z-index: 1000;
   height: 60px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  border-bottom-left-radius: 25px; 
+  border-bottom-left-radius:25px; 
   border-bottom-right-radius: 25px; 
 }
 
@@ -70,6 +84,7 @@ body {
   align-items: center;
 }
 
+/* Menú Navegación */
 .nav-links {
   display: flex;
   justify-content: center;
@@ -84,21 +99,33 @@ body {
 }
 
 .nav-links li a {
-  color: white;
+  color: var(--background-color);
   text-decoration: none;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: lighter;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  text-decoration: underline;
+  color: var(--background-color);
+  filter: drop-shadow(0 0 2px var(--hover-color));
 }
 
+/* Logo Header */
 .logo {
-  height: 50px; /* Tamaño del logo */
+  width: 40px; /* Tamaño del logo */
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
   margin-right: 15px; /* Espacio entre el logo y el menú desplegable */
+  filter: none; /* Sin neón por defecto */
 }
 
+.logo-container .logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 0.5px var(--hover-color));
+}
+
+/* Menú de las tres rayas en el header */
 .dropdown-menu {
   position: relative;
   margin-right: auto; /* Empuja el botón de cambio de tema hacia la derecha */
@@ -107,10 +134,19 @@ body {
 .menu-toggle {
   background: none;
   border: none;
-  color: white;
+  color: var(--background-color);
   font-size: 24px;
   cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-left: auto;
 }
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+  color: var(--background-color);
+  filter: drop-shadow(0 0 2px var(--hover-color));
+}
+
 
 .dropdown-content {
   position: absolute;
