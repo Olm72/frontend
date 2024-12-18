@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; 
-import "./ErrorMensajes.css";
+import "../../styles/ErrorMensajes.css";
 import { Link } from "react-router-dom";
 
 const Error404 = () => {
