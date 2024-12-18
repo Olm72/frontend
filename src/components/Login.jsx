@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import backgroundImage from "../assets/images/web-4861605_1920.jpg";
+import backgroundImage from "../assets/images/fondo-pantalla-productos-nexeus-big-data.jpg";
 
 const Login = () => {
     const [name, setName] = useState("");

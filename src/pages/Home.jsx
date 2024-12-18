@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Home.css";
-import headerImage from "../assets/images/ai-generated-8540915_1920.jpg";
-import featureImage from "../assets/images/technology-7111799_1920.jpg";
+import "../styles/Home.css";
+import headerImage from "../assets/images/fondo-pantalla-nexeus-big-data-inicio.jpg";
+import featureImage from "../assets/images/tecnologia-nexeus-big-data.jpg";
 
 const Home = ({ toggleTheme, theme }) => {
   return (

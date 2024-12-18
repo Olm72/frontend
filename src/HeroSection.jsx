@@ -1,5 +1,5 @@
 import React from "react";
-import './HeroSection.css';
+import './styles/HeroSection.css';
 import heroImage from '../assets/images/artificial-intelligence-7450797_1920.jpg';
 
 const HeroSection = () => {

@@ -10,11 +10,11 @@ import Dashboard from "./components/Dashboard";
 import Productos from "./pages/Productos";
 import Expertos from "./pages/Expertos";
 import Blog from "./pages/Blog";
-import "./App.css";
-import logo from "./assets/images/nexeus-logo.png";
-import facebookIcon from "./assets/images/facebook.png";
-import instagramIcon from "./assets/images/instagram.png";
-import twitterIcon from "./assets/images/gorjeo.png";
+import "./styles/App.css";
+import logo from "./assets/images/nexeus-big-data-logo.png";
+import facebookIcon from "./assets/images/logo-facebook-nexeus-big-data.png";
+import instagramIcon from "./assets/images/logo-instagram-nexeus-big-data.png";
+import twitterIcon from "./assets/images/logo-x-twitter-nexeus-big-data.png";
 
 const App = () => {
   const [theme, setTheme] = useState("light");

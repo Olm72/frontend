@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Form.css";
+import "../../styles/Form.css";
 import ErrorMensajes from "../ErrorMensajes/ErrorMensajes";
-
+import "../../styles/Form.css";
 const Form = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     name: "",
