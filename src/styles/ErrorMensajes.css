@@ -47,23 +47,6 @@
   font-size: ; /* Opcional: ajusta el tamaño del texto */
 }
 
-/* Ajuste de espaciado para el botón */
-.cta-button {
-  margin-top: 20px; /* Espacio adicional entre el texto y el botón */
-  padding: 10px 20px; /* Ajusta el tamaño del botón */
-  font-size: 1rem; /* Tamaño del texto del botón */
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #28a745; /* Color verde del botón */
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #218838; /* Efecto hover para el botón */
-}
-
 /* ErrorMessage.css */
 form .mensajes-error {
   background-color: #ffcccc; /* Fondo rojo muy claro */

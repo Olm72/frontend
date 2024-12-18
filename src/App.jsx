@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Button from "./components/Button/Button";
-import Form from "./components/Form/Form";
 import Error404 from "./components/ErrorMensajes/Error404";
 import Error500 from "./components/ErrorMensajes/Error500";
 import Home from "./pages/Home";
@@ -12,10 +11,12 @@ import Expertos from "./pages/Expertos";
 import Blog from "./pages/Blog";
 import Contacto from "./pages/Contacto";
 import "./styles/App.css";
+import "./styles/Button.css";
 import logo from "./assets/images/nexeus-big-data-logo.png";
 import facebookIcon from "./assets/images/logo-facebook-nexeus-big-data.png";
-import instagramIcon from "./assets/images/logo-instagram-nexeus-big-data.png";
-import twitterIcon from "./assets/images/logo-x-twitter-nexeus-big-data.png";
+import linkedInIcon from "./assets/images/logo-linkedin-nexeus-big-data.png";
+import xtwitterIcon from "./assets/images/logo-x-twitter-nexeus-big-data.png";
+import emailIcon from "./assets/images/logo-correo-electronico-nexeus-big-data.png";
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -141,11 +142,14 @@ const App = () => {
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               <img src={facebookIcon} alt="Facebook" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <img src={instagramIcon} alt="Instagram" />
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <img src={linkedInIcon} alt="LinkedIn" />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <img src={twitterIcon} alt="Twitter" />
+              <img src={xtwitterIcon} alt="Twitter" />
+            </a>
+            <a href="https://gmail.com" target="_blank" rel="noopener noreferrer">
+              <img src={emailIcon} alt="Email" />
             </a>
           </div>
         </footer>

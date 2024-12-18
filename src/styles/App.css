@@ -2,8 +2,9 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
   font-family: 'Roboto', sans-serif; /* Fuente principal */
+  overflow-x: hidden; /* Mantén oculto el desplazamiento horizontal */
+  overflow-y: auto; /* Habilita el scroll vertical */
   text-decoration: none;
   list-style: none;
 }
@@ -50,8 +51,10 @@ body {
 .app-container {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh; /* Ajusta la altura mínima */
   background-color: var(--background-color);
+  display: flex;
+  flex-direction: column; /* Asegura que el contenido fluya verticalmente */
 }
 
 /* Header */
@@ -70,7 +73,7 @@ body {
   z-index: 1000;
   height: 60px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  border-bottom-left-radius:25px; 
+  border-bottom-left-radius:0px; 
   border-bottom-right-radius: 25px; 
 }
 
@@ -82,7 +85,7 @@ body {
 .header-right {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -129,20 +132,25 @@ body {
 
 /* Menú de las tres rayas en el header */
 .dropdown-menu {
-  margin-left: auto; /* Empuja el botón de cambio de tema hacia la derecha */
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  height: 100%; /* Ocupamos toda la altura del header */
+  position: relative;
 }
 
 .menu-toggle {
   background: none;
   border: none;
   color: var(--background-color);
-  font-size: 24px;
+  font-size: 22px;
   cursor: pointer;
   transition: transform 0.3s ease;
-  margin-left: auto;
+  display: flex;
+  align-items: center; /* Asegura que el icono también esté centrado */
+  justify-content: center;
+  height: 100%; /* Ajusta la altura al contenedor */
+  margin-left: auto; /* Empuja hacia la derecha */
 }
 
 .menu-toggle:hover {
@@ -150,7 +158,6 @@ body {
   color: var(--background-color);
   filter: drop-shadow(0 0 2px var(--hover-color));
 }
-
 
 .dropdown-content {
   position: absolute;
@@ -193,16 +200,15 @@ body {
   border-radius: 4px;
 }
 
-
-.dropdown-menu:hover .dropdown-content {
-  display: block;
+.dropdown-menu:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
 }
 
 .theme-toggle-button {
-  margin-left: auto; /* Empuja el botón de cambio de tema hacia el extremo derecho */
   background: none;
   border: none;
-  color: white;
+  color: var(--background-color);
   font-size: 16px;
   cursor: pointer;
   padding: 10px;
@@ -242,91 +248,47 @@ body {
   gap: 30px;
 }
 
-.button-section,
-.form-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px auto;
-  padding: 0; 
-  border: none; 
-  box-shadow: none; 
-  background: transparent; 
-}
-
-.app-footer {
-  background-color: var(--primary-color);
-  color: white;
-  text-align: center;
-  padding: 10px;
-  font-size: 14px;
-}
-
-/* Botones */
-.button-group button {
-  background-color: var(--secondary-color);
-  color: white;
-  padding: 15px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: all 0.3s ease;
-}
-
-.button-group button:hover {
-  background-color: var(--button-hover-color);
-  transform: scale(1.05);
-}
-
 /* Footer */
 .app-footer {
   display: flex;
   background-color: var(--primary-color);
   color: white;
-  justify-content: space-between; 
-  align-items: center; 
-  padding: 10px 20px; 
+  justify-content: space-between;
+  align-items: center; /* Centra todos los elementos verticalmente */
+  padding: 10px 20px;
   font-size: 14px;
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100vw;
-  max-width: 100%;
+  width: 100%;
   z-index: 1000;
   height: 60px;
-  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
   border-top-left-radius: 25px;
-  border-top-right-radius: 25px; 
-  margin-top: auto;
+  border-top-right-radius: 25px;
 }
 
-.main-content {
+/* Centramos el texto en el footer */
+.footer-text {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px; 
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-align: center;
+  margin: 0;
 }
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  position: relative;
-}
-
+/* Redes sociales alineadas a la derecha y centradas verticalmente */
 .social-links {
   display: flex;
-  gap: 15px;
-  justify-content: end;
-  align-items: center;
+  gap: 8px; /* Espacio reducido entre iconos */
+  justify-content: flex-end; /* Alinea a la derecha */
+  align-items: center; /* Centra verticalmente los iconos */
+  height: 100%; /* Ocupa la altura total del footer */
 }
 
 .social-links img {
-  height: 30px;
+  height: 24px; /* Tamaño compacto de los iconos */
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -334,6 +296,7 @@ body {
 .social-links img:hover {
   opacity: 0.8;
   transform: scale(1.1);
+  filter: drop-shadow(0 0 2px var(--hover-color)); /* Efecto de hover */
 }
 
 /* Scrollbar personalizado */
@@ -350,11 +313,7 @@ body {
   background: var(--secondary-color); /* Color al pasar el cursor */
 }
 
-
-
-
-
-/* Estilos login */
+/* Estilos login form */
 .login-container {
   display: flex;
   justify-content: center;
@@ -400,25 +359,10 @@ body {
 .login-form input:focus {
   outline: none;
   border-color: var(--secondary-color);
-  box-shadow: 0px 0px 5px var(--secondary-color);
+  box-shadow: 0px 0px 2px var(--secondary-color);
 }
 
-.login-form button {
-  width: 100%;
-  padding: 12px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.login-form button:hover {
-  background-color: var(--accent-color);
-}
-
+/* Mensaje error */
 .error-message {
   color: red;
   margin-bottom: 10px;

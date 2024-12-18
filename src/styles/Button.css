@@ -1,0 +1,104 @@
+:root {
+    --primary-color: #1A3E5C; /* Azul marino */
+    --secondary-color: #4A90E2; /* Azul claro */
+    --accent-color: #3CB371; /* Verde */
+    --background-color: #F5F5F5; /* Gris claro */
+    --text-color: #4A4A4A; /* Texto gris oscuro */
+    --hover-color: #4A90E2; /* Azul Hover */
+    --neon-color: #89b9f0; /* Neón azul */
+    --border-color: #ccc;
+    --button-hover-color: #3CB371;
+  }
+
+/* General Button styles */
+.btn {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}
+
+/* Ajuste de botones formularios e inicio sesión*/
+.cta-button {
+    padding: 12px;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.login-form button, .cta-button:hover:hover {
+    background-color: var(--accent-color);
+}
+  
+/* Button types*/
+.btn-primary{
+    background-color: #0055aa;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #003d82;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #d9d9d9;
+}
+
+.btn-danger {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #e31b0c;
+}
+
+.btn-success {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #45a049;
+}
+
+.btn-warning {
+    background-color: #ff9800;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e68900;
+}

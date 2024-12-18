@@ -103,11 +103,58 @@ const Form = ({ onSubmit }) => {
             value={formData.countryCode}
             onChange={handleChange}
           >
+            <option value="+374">+374 (Հայաստան - Armenia)</option>
+            <option value="+43">+43 (Österreich - Austria)</option>
+            <option value="+994">+994 (Azərbaycan - Azerbaiyán)</option>
+            <option value="+375">+375 (Беларусь - Bielorrusia)</option>
+            <option value="+32">+32 (België - Bélgica)</option>
+            <option value="+359">+359 (България - Bulgaria)</option>
+            <option value="+86">+86 (中国 - China)</option>
+            <option value="+357">+357 (Κύπρος - Chipre)</option>
+            <option value="+385">+385 (Hrvatska - Croacia)</option>
+            <option value="+420">+420 (Česká republika - República Checa)</option>
+            <option value="+45">+45 (Danmark - Dinamarca)</option>
+            <option value="+299">+299 (Kalaallit Nunaat - Groenlandia)</option>
+            <option value="+372">+372 (Eesti - Estonia)</option>
+            <option value="+358">+358 (Suomi - Finlandia)</option>
+            <option value="+33">+33 (France - Francia)</option>
+            <option value="+350">+350 (Gibraltar)</option>
+            <option value="+49">+49 (Deutschland - Alemania)</option>
+            <option value="+30">+30 (Ελλάδα - Grecia)</option>
+            <option value="+91">+91 (भारत - India)</option>
+            <option value="+354">+354 (Ísland - Islandia)</option>
+            <option value="+353">+353 (Éire - Irlanda)</option>
+            <option value="+39">+39 (Italia)</option>
+            <option value="+383">+383 (Kosovë - Kosovo)</option>
+            <option value="+371">+371 (Latvija - Letonia)</option>
+            <option value="+423">+423 (Liechtenstein)</option>
+            <option value="+370">+370 (Lietuva - Lituania)</option>
+            <option value="+352">+352 (Lëtzebuerg - Luxemburgo)</option>
+            <option value="+389">+389 (Северна Македонија - Macedonia del Norte)</option>
+            <option value="+356">+356 (Malta)</option>
+            <option value="+373">+373 (Moldova - Moldavia)</option>
+            <option value="+382">+382 (Crna Gora - Montenegro)</option>
+            <option value="+377">+377 (Monaco - Mónaco)</option>
+            <option value="+31">+31 (Nederland - Países Bajos)</option>
+            <option value="+47">+47 (Norge - Noruega)</option>
+            <option value="+48">+48 (Polska - Polonia)</option>
+            <option value="+351">+351 (Portugal)</option>
+            <option value="+40">+40 (România - Rumanía)</option>
+            <option value="+7">+7 (Россия - Rusia)</option>
+            <option value="+378">+378 (San Marino)</option>
+            <option value="+381">+381 (Србија - Serbia)</option>
+            <option value="+421">+421 (Slovensko - Eslovaquia)</option>
+            <option value="+386">+386 (Slovenija - Eslovenia)</option>
             <option value="+34">+34 (España)</option>
-            <option value="+1">+1 (EE.UU.)</option>
-            <option value="+44">+44 (Reino Unido)</option>
-            <option value="+91">+91 (India)</option>
-            {/* Agrega más prefijos */}
+            <option value="+354">+354 (Føroyar - Islas Feroe)</option>
+            <option value="+46">+46 (Sverige - Suecia)</option>
+            <option value="+41">+41 (Schweiz - Suiza)</option>
+            <option value="+90">+90 (Türkiye - Turquía)</option>
+            <option value="+380">+380 (Україна - Ucrania)</option>
+            <option value="+1">+1 (United States - EE.UU.)</option>
+            <option value="+44">+44 (United Kingdom - Reino Unido)</option>
+            <option value="+39">+39 (Città del Vaticano - Ciudad del Vaticano)</option>
+
           </select>
           <input
             type="text"

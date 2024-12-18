@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./Button.css";
+import "../../styles/Button.css";
 
 
 const Button = ({ text, onClick, type = "primary", disabled = false, ariaLabel }) => {
