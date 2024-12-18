@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard";
 import Productos from "./pages/Productos";
 import Expertos from "./pages/Expertos";
 import Blog from "./pages/Blog";
+import Contacto from "./pages/Contacto";
 import "./styles/App.css";
 import logo from "./assets/images/nexeus-big-data-logo.png";
 import facebookIcon from "./assets/images/logo-facebook-nexeus-big-data.png";
@@ -45,12 +46,15 @@ const App = () => {
             <Link to="/" className="logo-container">
               <img src={logo} alt="Nexeus Logo" className="logo" />
             </Link>
-            <nav className="dropdown-menu" onMouseLeave={closeMenu}>
+          </div>
+
+          <div>
+            <nav className="dropdown-menu">
               <button className="menu-toggle" onClick={toggleMenu}>
                 ☰
               </button>
               {menuOpen && (
-                <ul className="dropdown-content">
+                <ul className="dropdown-content" style={{ position: "absolute" }}>
                   <li>
                     <Link to="/dashboard" onClick={closeMenu}>
                       Dashboard
@@ -61,7 +65,7 @@ const App = () => {
                       className="theme-toggle-button"
                       onClick={() => {
                         toggleTheme();
-                        closeMenu();
+                        closeMenu(); // Cierra el menú después de cambiar el tema
                       }}
                     >
                       {theme === "light" ? "Modo Oscuro" : "Modo Claro"}
@@ -101,7 +105,6 @@ const App = () => {
                   <>
                     <Home toggleTheme={toggleTheme} theme={theme} />
                     <section className="button-section">
-                      <h2>Botones</h2>
                       <div className="button-group">
                         <Button
                           text="Primario"
@@ -115,19 +118,11 @@ const App = () => {
                         />
                       </div>
                     </section>
-
-                    <section className="form-section">
-                      <h2>Formulario</h2>
-                      <Form
-                        onSubmit={(data) =>
-                          alert(`Formulario enviado con los datos: ${JSON.stringify(data)}`)
-                        }
-                      />
-                    </section>
                   </>
                 }
               />
               <Route path="/login" element={<Login />} />
+              <Route path="/contacto" element={<Contacto />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/error404" element={<Error404 />} />
               <Route path="/error500" element={<Error500 />} />

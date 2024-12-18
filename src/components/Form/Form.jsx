@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "../../styles/Form.css";
 import ErrorMensajes from "../ErrorMensajes/ErrorMensajes";
-import "../../styles/Form.css";
+
 const Form = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     name: "",
+    lastName:"",
     email: "",
     password: "",
     phone: "",
@@ -20,15 +21,13 @@ const Form = ({ onSubmit }) => {
       newErrors.name = "El nombre debe tener al menos 3 letras.";
     }
 
+    if (!formData.lastName || formData.lastName.length < 3) {
+      newErrors.lastName = "Los apellidos deben tener al menos 3 letras.";
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       newErrors.email = "Por favor, introduce un correo válido.";
-    }
-
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
-    if (!passwordRegex.test(formData.password)) {
-      newErrors.password =
-        "La contraseña debe tener al menos 6 caracteres, incluyendo una letra y un número.";
     }
 
     const fullPhoneNumber = `${formData.countryCode}${formData.phone}`;
@@ -57,7 +56,7 @@ const Form = ({ onSubmit }) => {
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
-      <h2>Formulario</h2>
+      <h2>Contacto</h2>
 
       <div className="form-group">
         <label htmlFor="name">Nombre</label>
@@ -72,6 +71,18 @@ const Form = ({ onSubmit }) => {
       </div>
 
       <div className="form-group">
+        <label htmlFor="lastName">Apellidos</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+        />
+        {errors.lastName && <ErrorMensajes simpleMessage={errors.lastName} />}
+      </div>
+
+      <div className="form-group">
         <label htmlFor="email">Correo Electrónico</label>
         <input
           type="email"
@@ -81,18 +92,6 @@ const Form = ({ onSubmit }) => {
           onChange={handleChange}
         />
         {errors.email && <ErrorMensajes simpleMessage={errors.email} />}
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="password">Contraseña</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        {errors.password && <ErrorMensajes simpleMessage={errors.password} />}
       </div>
 
       <div className="form-group">
