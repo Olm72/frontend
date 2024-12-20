@@ -1,11 +1,93 @@
 :root {
-  --primary-color: #1A3E5C; /* Azul marino */
-  --secondary-color: #4A90E2; /* Azul claro */
-  --accent-color: #3CB371; /* Verde */
-  --background-color: #F5F5F5; /* Gris claro */
-  --text-color: #4A4A4A; /* Texto gris oscuro */
-  --hover-color: #4A90E2; /* Azul Hover */
-  --neon-color: #89b9f0; /* Neón azul */
+  --primary-color: #1a3e5c; 
+  --secondary-color: #4a90e2; 
+  --accent-color: #3cb371; 
+  --background-color: #f5f5f5; 
+  --text-color: #4a4a4a; 
+  --hover-color: #4a90e2; 
+  --neon-color: #89b9f0; 
   --border-color: #ccc;
-  --button-hover-color: #3CB371;
+  --button-hover-color: #3cb371;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
+}
+
+.app-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.expertos-container {
+  background-image: url("../assets/images/tecnologia-nexeus-big-data.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: relative;
+  border-radius: 20px;
+}
+
+.expert-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+}
+
+.expert-image {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expert-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.expertos-box {
+  background: rgba(255, 255, 255, 0.8); 
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.expertos-box h1 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.expertos-box p {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.expertos-slogan {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-color);
+  font-style: italic;
+  font-size: 1.2rem;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
