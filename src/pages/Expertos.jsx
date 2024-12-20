@@ -22,7 +22,7 @@ const Expertos = () => {
             className="expert-image"
             onClick={() =>
               handleSloganChange(
-                "«Gracias a Nexeus, logré mejorar mi rendimiento y trabajar en soluciones tecnológicas innovadoras.»"
+                "«Mario Casillas Rodríguez: Gracias a Nexeus, logré mejorar mi rendimiento y trabajar en soluciones tecnológicas innovadoras.»"
               )
             }
           />
@@ -50,7 +50,7 @@ const Expertos = () => {
             className="expert-image"
             onClick={() =>
               handleSloganChange(
-                "«Nexeus me brindó las herramientas para liderar proyectos de vanguardia y transformar mi carrera profesional.»"
+                "«Helena Pérez Rueda: Nexeus me brindó las herramientas para liderar proyectos de vanguardia y transformar mi carrera profesional.»"
               )
             }
           />
