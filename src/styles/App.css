@@ -104,7 +104,7 @@ body {
 }
 
 .nav-links li a {
-  color: var(--background-color);
+  color: white;
   text-decoration: none;
   font-size: 16px;
   font-weight: lighter;
@@ -112,7 +112,7 @@ body {
 }
 
 .nav-links li a:hover {
-  color: var(--background-color);
+  color: white;
   filter: drop-shadow(0 0 2px var(--hover-color));
 }
 
@@ -142,7 +142,7 @@ body {
 .menu-toggle {
   background: none;
   border: none;
-  color: var(--background-color);
+  color: white;
   font-size: 22px;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -155,7 +155,7 @@ body {
 
 .menu-toggle:hover {
   transform: scale(1.1);
-  color: var(--background-color);
+  color: white;
   filter: drop-shadow(0 0 2px var(--hover-color));
 }
 
@@ -208,7 +208,7 @@ body {
 .theme-toggle-button {
   background: none;
   border: none;
-  color: var(--background-color);
+  color: white;
   font-size: 16px;
   cursor: pointer;
   padding: 10px;
@@ -236,6 +236,7 @@ body {
   z-index: 1; 
   scrollbar-width: thin;
   scrollbar-color: var(--primary-color) var(--background-color);
+  padding-bottom: 60px;
 }
 
 .app-main {
@@ -257,15 +258,17 @@ body {
   align-items: center; /* Centra todos los elementos verticalmente */
   padding: 10px 20px;
   font-size: 14px;
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  bottom: auto;
   left: 0;
   width: 100%;
   z-index: 1000;
   height: 60px;
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
-  border-top-left-radius: 25px;
+  border-top-left-radius: 0px;
   border-top-right-radius: 25px;
+  /*border: 2px solid red; Para depurar borde visible */
+  /* background-color: rgba(255, 0, 0, 0.1); Depuración: Fondo rojo translúcido */ 
 }
 
 /* Centramos el texto en el footer */
@@ -281,14 +284,14 @@ body {
 /* Redes sociales alineadas a la derecha y centradas verticalmente */
 .social-links {
   display: flex;
-  gap: 8px; /* Espacio reducido entre iconos */
+  gap: 15px; /* Espacio reducido entre iconos */
   justify-content: flex-end; /* Alinea a la derecha */
   align-items: center; /* Centra verticalmente los iconos */
   height: 100%; /* Ocupa la altura total del footer */
 }
 
 .social-links img {
-  height: 24px; /* Tamaño compacto de los iconos */
+  height: 24px; /* Tamaño de los iconos */
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }

@@ -137,32 +137,3 @@
   margin-top: 10px;
 }
 
-/* Footer */
-.home-footer {
-  background-color: #1A3E5C;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: auto; /* Empuja el footer hacia la parte inferior */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.social-links {
-  margin-top: 10px;
-  display: flex;
-  gap: 15px;
-}
-
-.social-links img {
-  height: 30px;
-  margin: 0 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.social-links img:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
-}

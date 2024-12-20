@@ -36,7 +36,6 @@ const App = () => {
     setMenuOpen(false);
   };
 
-
   return (
     <Router>
       <div className="app-container">
@@ -103,23 +102,7 @@ const App = () => {
               <Route
                 path="/"
                 element={
-                  <>
-                    <Home toggleTheme={toggleTheme} theme={theme} />
-                    <section className="button-section">
-                      <div className="button-group">
-                        <Button
-                          text="Primario"
-                          type="primary"
-                          onClick={() => console.log("Primario")}
-                        />
-                        <Button
-                          text="Secundario"
-                          type="secondary"
-                          onClick={() => console.log("Secundario")}
-                        />
-                      </div>
-                    </section>
-                  </>
+                  <Home toggleTheme={toggleTheme} theme={theme} />
                 }
               />
               <Route path="/login" element={<Login />} />
@@ -137,7 +120,20 @@ const App = () => {
 
         {/* Footer */}
         <footer className="app-footer">
-          <p>© 2024 NEXEUS Big Data | Todos los derechos reservados</p>
+          <div className="footer-left">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Paseo+de+la+Castellana,+93+%E2%80%93+2%C2%BA+Madrid+Spain+28046"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Paseo de la Castellana, 93 2º
+              <br />
+              Madrid (Spain) 28046
+            </a>
+          </div>
+          <div className="footer-center">
+            <p>© 2024 NEXEUS Big Data | Todos los derechos reservados</p>
+          </div>
           <div className="social-links">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               <img src={facebookIcon} alt="Facebook" />
