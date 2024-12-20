@@ -1,139 +1,94 @@
 /* General Layout */
 .home-container {
   font-family: 'Roboto', sans-serif;
-  color: #4A4A4A;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Asegura que la página ocupe el 100% de la pantalla */
 }
 
-/* Header */
-.home-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px 5%;
-  background: transparent;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
-}
-
-.logo {
-  height: 60px;
-  cursor: pointer;
-  font-size: 25px;
-  color: #f8f9fa;
-  text-decoration: none;
-  font-weight: 600;
-  opacity: 0;
-  width: auto;
-  margin-right: auto;
-  text-shadow: 0px 0px 5px #00fef5;
-  animation: zoomOut 1.3s ease forwards;
-}
-
-@keyframes zoomOut {
-  0% {
-    transform: scale(2);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.logo:hover {
-  color: #f8f9fa;
-}
-
-/* Menú */
-.home-nav {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.home-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.home-nav a {
-  display: inline-block;
-  font-size: 18px;
-  color: #f8f9fa;
-  text-decoration: none;
-  font-weight: 500;
-  margin: 0 20px;
-  transition: 0.3s;
-  opacity: 0;
-  text-shadow: 0px 0px 5px #4A90E2;
-  animation: slideTop 1s ease forwards;
-  animation-delay: calc(0.2s * var(--i));
-}
-
-@keyframes slideTop {
-  0% {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.home-nav a:hover,
-.home-nav a.active {
-  color: #4A90E2;
-  text-shadow: 0px 0px 10px #4A90E2, 0px 0px 20px #4A90E2, 0px 0px 30px #4A90E2;
-  transform: scale(1.1);
+:root {
+  --primary-color: #1A3E5C; /* Azul marino */
+  --secondary-color: #4A90E2; /* Azul claro */
+  --accent-color: #3CB371; /* Verde */
+  --background-color: #F5F5F5; /* Gris claro */
+  --text-color: #4A4A4A; /* Texto gris oscuro */
+  --hover-color: #4A90E2; /* Azul Hover */
+  --neon-color: #89b9f0; /* Neón azul */
+  --border-color: #ccc;
+  --button-hover-color: #3CB371;
 }
 
 /* Hero Section */
 .home-hero {
   position: relative;
   text-align: center;
+  background-color: var(--background-color); /* Mejora el contraste si no hay imagen de fondo */
 }
 
 .hero-image {
   width: 100%;
   height: auto;
-  opacity: 0.9;
+  opacity: 1;
+  object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+  margin-bottom: 0px;
 }
 
 .hero-text {
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
   transform: translate(-50%, -50%);
-  color: white;
-  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  color: var(--background-color);
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Efecto de sombra para mejor legibilidad */
+  max-width: 80%; /* Limita el ancho del texto en pantallas grandes */
+}
+
+.hero-text h1 {
+  font-size: 34px; /* Tamaño del título NEXEUS Big Data */
+  margin-bottom: 15px; /* Espacio debajo del título */
+  font-weight: bold;
+}
+
+.hero-text p {
+  font-size: 24px; /* Tamaño del párrafo */
+  margin-bottom: 20px; /* Espacio entre el párrafo y el botón */ 
+  max-width: 600px;
 }
 
 /* Features Section */
 .home-features {
   padding: 40px 20px;
   text-align: center;
-  flex: 1; /* Hace que esta sección ocupe el espacio disponible */
+  color: var(--text-color);
+  flex: 1; 
 }
 
 .feature img {
-  width: 80%;
+  width: 100%; 
   max-width: 500px;
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 15px; 
 }
 
 .feature p {
-  font-size: 18px;
-  margin-top: 10px;
+  font-size: 24px;
+  margin: 20px auto; 
+  line-height: 1.5; 
+  max-width: 600px; 
+  margin-bottom: 0px;
 }
 
+.features-title {
+  font-size: 34px; 
+  margin-bottom: 30px; 
+}
+
+.feature-image {
+  margin-bottom: 0px; 
+}
+
+.feature-description {
+  margin-top: 10px; /* Espacio encima del párrafo */
+  font-size: 24px; /* Opcional: ajuste del tamaño */
+}

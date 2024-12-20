@@ -1,13 +1,22 @@
-body {
+html, body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden; /* Mantén oculto el desplazamiento horizontal */
+  overflow-y: auto; /* Habilita el scroll vertical */
+  text-decoration: none;
+  list-style: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary-color: #1A3E5C; /* Azul marino */
+  --secondary-color: #4A90E2; /* Azul claro */
+  --accent-color: #3CB371; /* Verde */
+  --background-color: #F5F5F5; /* Gris claro */
+  --text-color: #4A4A4A; /* Texto gris oscuro */
+  --hover-color: #4A90E2; /* Azul Hover */
+  --neon-color: #89b9f0; /* Neón azul */
+  --border-color: #ccc;
+  --button-hover-color: #3CB371;
 }

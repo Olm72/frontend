@@ -1,3 +1,15 @@
+:root {
+  --primary-color: #1A3E5C; /* Azul marino */
+  --secondary-color: #4A90E2; /* Azul claro */
+  --accent-color: #3CB371; /* Verde */
+  --background-color: #F5F5F5; /* Gris claro */
+  --text-color: #4A4A4A; /* Texto gris oscuro */
+  --hover-color: #4A90E2; /* Azul Hover */
+  --neon-color: #89b9f0; /* Neón azul */
+  --border-color: #ccc;
+  --button-hover-color: #3CB371;
+}
+
 .hero-section {
     height: 100vh;
     background-size: cover;

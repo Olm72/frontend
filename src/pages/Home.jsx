@@ -21,10 +21,12 @@ const Home = ({ toggleTheme, theme }) => {
 
       {/* Sección de Features */}
       <section className="home-features">
-        <h2>Nuestros servicios</h2>
+        <h2 className="features-title">Nuestros servicios</h2>
         <div className="feature">
-          <img src={featureImage} alt="Feature" />
-          <p>Descubre cómo la inteligencia artificial puede mejorar tu negocio.</p>
+          <img src={featureImage} alt="Feature" className="feature-image" />
+          <p className="feature-description">
+            Descubre cómo la inteligencia artificial puede mejorar tu negocio.
+          </p>
         </div>
       </section>
     </div>
