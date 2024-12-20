@@ -250,6 +250,18 @@ body {
 }
 
 /* Footer */
+.footer-left a {
+  color: white; /* Mismo color que el texto del párrafo */
+  text-decoration: none; /* Elimina el subrayado */
+  font-size: 14px; /* Ajusta el tamaño de fuente si es necesario */
+}
+
+.footer-left a:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 1px var(--hover-color)); /* Efecto de hover */
+}
+
 .app-footer {
   display: flex;
   background-color: var(--primary-color);
@@ -267,8 +279,6 @@ body {
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
   border-top-left-radius: 0px;
   border-top-right-radius: 25px;
-  /*border: 2px solid red; Para depurar borde visible */
-  /* background-color: rgba(255, 0, 0, 0.1); Depuración: Fondo rojo translúcido */ 
 }
 
 /* Centramos el texto en el footer */
@@ -284,14 +294,16 @@ body {
 /* Redes sociales alineadas a la derecha y centradas verticalmente */
 .social-links {
   display: flex;
-  gap: 15px; /* Espacio reducido entre iconos */
-  justify-content: flex-end; /* Alinea a la derecha */
+  gap: 15px; /* Espacio entre iconos */
+  justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente los iconos */
-  height: 100%; /* Ocupa la altura total del footer */
+  height: 60px; /* Ocupa la altura total del footer */
 }
 
 .social-links img {
   height: 24px; /* Tamaño de los iconos */
+  display: block; /* Asegura que los íconos se comporten como bloques */
+  margin: 0; /* Elimina posibles márgenes */
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -299,7 +311,7 @@ body {
 .social-links img:hover {
   opacity: 0.8;
   transform: scale(1.1);
-  filter: drop-shadow(0 0 2px var(--hover-color)); /* Efecto de hover */
+  filter: drop-shadow(0 0 1px var(--hover-color)); /* Efecto de hover */
 }
 
 /* Scrollbar personalizado */
