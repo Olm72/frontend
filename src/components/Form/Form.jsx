@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "../../styles/Form.css";
 import ErrorMensajes from "../ErrorMensajes/ErrorMensajes";
+import { useTranslation } from 'react-i18next';
+
 
 const Form = ({ onSubmit }) => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     lastName:"",
@@ -18,22 +21,22 @@ const Form = ({ onSubmit }) => {
     const newErrors = {};
 
     if (!formData.name || formData.name.length < 3) {
-      newErrors.name = "El nombre debe tener al menos 3 letras.";
+      newErrors.name = t("error_name");
     }
 
     if (!formData.lastName || formData.lastName.length < 3) {
-      newErrors.lastName = "Los apellidos deben tener al menos 3 letras.";
+      newErrors.lastName = t("error_last_name");
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Por favor, introduce un correo válido.";
+      newErrors.email = t("error_email");
     }
 
     const fullPhoneNumber = `${formData.countryCode}${formData.phone}`;
     const phoneRegex = /^\+\d{1,3}\d{7,12}$/; // Validar el número completo con el prefijo
     if (!phoneRegex.test(fullPhoneNumber)) {
-      newErrors.phone = "Introduce un número de teléfono válido.";
+      newErrors.phone = t("error_phone");
     }
 
     setErrors(newErrors);
@@ -54,12 +57,13 @@ const Form = ({ onSubmit }) => {
     }
   };
 
+  
   return (
     <form className="form-container" onSubmit={handleSubmit}>
-      <h2>Contacto</h2>
+      <h2>{t("contact")}</h2>
 
       <div className="form-group">
-        <label htmlFor="name">Nombre</label>
+        <label htmlFor="name">{t("name")}</label>
         <input
           type="text"
           id="name"
@@ -71,7 +75,7 @@ const Form = ({ onSubmit }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="lastName">Apellidos</label>
+        <label htmlFor="lastName">{t("lastname")}</label>
         <input
           type="text"
           id="lastName"
@@ -83,7 +87,7 @@ const Form = ({ onSubmit }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="email">Correo Electrónico</label>
+        <label htmlFor= "email"> {t("email")}</label>
         <input
           type="email"
           id="email"
@@ -95,7 +99,7 @@ const Form = ({ onSubmit }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="phone">Teléfono</label>
+        <label htmlFor="phone">{t("phone")}</label>
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <select
             id="countryCode"
@@ -168,7 +172,7 @@ const Form = ({ onSubmit }) => {
         {errors.phone && <ErrorMensajes simpleMessage={errors.phone} />}
       </div>
 
-      <button type="submit">Enviar</button>
+      <button type="submit">{t("sumit")}</button>
     </form>
   );
 };

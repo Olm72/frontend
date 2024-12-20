@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import backgroundImage from "../assets/images/fondo-pantalla-productos-nexeus-big-data.jpg";
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
     const [isSignUp, setIsSignUp] = useState(false); 
@@ -11,6 +12,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
+    const { t } = useTranslation();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,28 +20,28 @@ const Login = () => {
 
         // Validación básica
         if (!email || !password || (isSignUp && (!name || !lastName))) {
-            setError("Por favor completa todos los campos.");
-            toast.error("Por favor completa todos los campos.");
+            setError(t("todoVacio"));
+            toast.error(t("todoVacio"));
             return;
         }
 
         if (!/\S+@\S+\.\S+/.test(email)) {
-            setError("Introduce una dirección de correo electrónico válida.");
-            toast.error("Correo inválido.");
+            setError(t("email_invalido"));
+            toast.error(t("email_invalidoFlash"));
             return;
         }
 
         if (isSignUp && password !== confirmPassword) {
-            setError("Las contraseñas no coinciden.");
-            toast.error("Las contraseñas no coinciden.");
+            setError(t("contraseñaInvalida"));
+            toast.error(t("contraseñaInvalida"));
             return;
         }
 
         if (isSignUp) {
-            toast.success("¡Registro exitoso!");
+            toast.success(t("registroExitoso"));
             console.log("Registrando usuario:", { name, lastName, email, password });
         } else {
-            toast.success("¡Inicio de sesión exitoso!");
+            toast.success(t("InicioExitiso"));
             console.log("Iniciando sesión con:", { email, password });
         }
     };
@@ -55,20 +57,20 @@ const Login = () => {
             }}
         >
             <form onSubmit={handleSubmit} className="login-form">
-                <h2>{isSignUp ? "Registrarse" : "Iniciar Sesión"}</h2>
+                <h2>{isSignUp ? t("registrarse") : t("iniciarSesion")}</h2>
                 {error && <p className="error-message">{error}</p>}
 
                 {isSignUp && (
                     <>
                         <input
                             type="text"
-                            placeholder="Nombre"
+                            placeholder= {t("name")}
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
                         <input
                             type="text"
-                            placeholder="Apellidos"
+                            placeholder= {t("lastname")}
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                         />
@@ -77,13 +79,13 @@ const Login = () => {
 
                 <input
                     type="email"
-                    placeholder="Correo Electrónico"
+                    placeholder= {t("email")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                     type="password"
-                    placeholder="Contraseña"
+                    placeholder= {t("password")}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
@@ -91,21 +93,21 @@ const Login = () => {
                 {isSignUp && (
                     <input
                         type="password"
-                        placeholder="Confirmar Contraseña"
+                        placeholder= {t("confirm_password")}
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 )}
 
-                <button type="submit">{isSignUp ? "Registrarse" : "Iniciar Sesión"}</button>
+                <button type="submit">{isSignUp ? t("registrarse") : t("iniciarSesion")}</button>
 
                 <p style={{ textAlign: "center", marginTop: "10px" }}>
-                    {isSignUp ? "¿Ya tienes cuenta?" : "¿No tienes cuenta?"}{" "}
+                    {isSignUp ? t("preguntaRegistro1") : t("preguntaRegistro2")}{" "}
                     <span
                         style={{ color: "#007BFF", cursor: "pointer", fontWeight: "bold" }}
                         onClick={() => setIsSignUp(!isSignUp)}
                     >
-                        {isSignUp ? "Inicia Sesión" : "Regístrate"}
+                        {isSignUp ? t("iniciarSesion") : t("registrarse") }
                     </span>
                 </p>
             </form>
