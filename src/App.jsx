@@ -17,10 +17,17 @@ import facebookIcon from "./assets/images/logo-facebook-nexeus-big-data.png";
 import linkedInIcon from "./assets/images/logo-linkedin-nexeus-big-data.png";
 import xtwitterIcon from "./assets/images/logo-x-twitter-nexeus-big-data.png";
 import emailIcon from "./assets/images/logo-correo-electronico-nexeus-big-data.png";
+import DropdownTranslate from './Dropdown'; 
+import { useTranslation } from 'react-i18next';
+import ExampleComponent from './exampleComponent.js'; 
+import { Suspense } from 'react';
 
 const App = () => {
   const [theme, setTheme] = useState("light");
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const { t } = useTranslation();
+
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -35,6 +42,7 @@ const App = () => {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+    
 
   return (
     <Router>
@@ -57,7 +65,7 @@ const App = () => {
                 <ul className="dropdown-content" style={{ position: "absolute" }}>
                   <li>
                     <Link to="/dashboard" onClick={closeMenu}>
-                      Dashboard
+                    {t('Dashboard')}
                     </Link>
                   </li>
                   <li>
@@ -68,7 +76,7 @@ const App = () => {
                         closeMenu(); // Cierra el menú después de cambiar el tema
                       }}
                     >
-                      {theme === "light" ? "Modo Oscuro" : "Modo Claro"}
+                      {theme === "light" ? t("Modo_Oscuro") : t("Modo_Claro")}
                     </button>
                   </li>
                 </ul>
@@ -80,20 +88,31 @@ const App = () => {
           <nav className="header-right">
             <ul className="nav-links">
               <li>
-                <Link to="/productos">Productos de IA</Link>
+                <Link to="/productos">{t('productos')}</Link>
               </li>
               <li>
-                <Link to="/expertos">Expertos</Link>
+                <Link to="/expertos">{t('expertos')}</Link>
               </li>
               <li>
-                <Link to="/blog">Blog</Link>
+                <Link to="/blog">{t('Blog')}</Link>
               </li>
               <li>
-                <Link to="/contacto">Contacto</Link>
+                <Link to="/contacto">{t('contact')}</Link> 
               </li>
             </ul>
           </nav>
+
+          {/* Idiomas */}
+           <div className="App"> 
+           <DropdownTranslate /> 
+                
+            </div>
         </header>
+        <h1>Mi Aplicación</h1>
+      <Suspense fallback={<div>Cargando...</div>}>
+        <ExampleComponent />
+      </Suspense>
+    </div>
 
         {/* Contenido principal */}
         <div className="main-content">
@@ -120,20 +139,7 @@ const App = () => {
 
         {/* Footer */}
         <footer className="app-footer">
-          <div className="footer-left">
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Paseo+de+la+Castellana,+93+%E2%80%93+2%C2%BA+Madrid+Spain+28046"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Paseo de la Castellana, 93 2º
-              <br />
-              Madrid (Spain) 28046
-            </a>
-          </div>
-          <div className="footer-center">
-            <p>© 2024 NEXEUS Big Data | Todos los derechos reservados</p>
-          </div>
+          <p>© 2024 NEXEUS Big Data | {t("derechos")}</p>
           <div className="social-links">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               <img src={facebookIcon} alt="Facebook" />
@@ -149,7 +155,7 @@ const App = () => {
             </a>
           </div>
         </footer>
-      </div>
+      
     </Router>
   );
 };

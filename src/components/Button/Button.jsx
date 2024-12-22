@@ -12,7 +12,7 @@ const Button = ({ text, onClick, type = "primary", disabled = false, ariaLabel }
             aria-label={ariaLabel || text}
             >
                 {text}
-            </button>
+            </button >
     );
 };
 

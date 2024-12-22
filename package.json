@@ -11,6 +11,7 @@
     "cookie": "^1.0.2",
     "css-select": "^5.1.0",
     "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-http-backend": "^3.0.1",
     "loader-utils": "^2.0.0",
     "lodash.template": "^4.5.0",
     "minimatch": "^3.0.5",

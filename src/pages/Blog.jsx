@@ -1,8 +1,10 @@
 import React from "react";
 import "../styles/Blog.css";
 import articulos from "../assets/articles";
+import { useTranslation } from 'react-i18next';
 
 const Blog = () => {
+  const { t } = useTranslation();
   return (
     <div className="blog">
       <div className="wrap">
@@ -25,10 +27,10 @@ const Blog = () => {
                   rel="noopener noreferrer"
                   className="articulo-enlace"
                 >
-                  Leer artículo completo
+                  {t("blog_enlace")}
                 </a>
               </div>
-            ))}
+            ))}  
           </main>
         </div>
       </div>
@@ -37,3 +39,4 @@ const Blog = () => {
 };
 
 export default Blog;
+  
