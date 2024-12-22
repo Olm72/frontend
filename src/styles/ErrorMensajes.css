@@ -12,8 +12,7 @@
 
 /* Reset global para eliminar márgenes predeterminados */
 * {
-  margin: 0;
-  padding: 0;
+  margin: inherit;
   box-sizing: border-box;
 }
 
@@ -26,7 +25,7 @@
   color: white; 
 
   /* Imagen de fondo */
-  background: url('/src/assets/images/fondo-pantalla-web-en-proceso-nexeus-big-data.png') no-repeat center center;
+  background: url('/src/assets/images/error404.jpg') no-repeat center center;
   background-size: cover; 
   background-attachment: fixed; 
 
@@ -49,14 +48,14 @@
 /* Ajustes de espaciado entre h1 y p */
 .hero-text1 h1 {
   margin-bottom: 15px; /* Espacio debajo del título */
-  font-size: ; /* Ajusta el tamaño del título si lo deseas */
+  font-size: 30px; /* Ajusta el tamaño del título si lo deseas */
 }
 
 .hero-text1 p {
   margin-top: 10px; /* Espacio opcional superior para el párrafo */
-  margin-bottom: 10px; /* Espacio adicional debajo del párrafo */
+  margin-bottom: 20px; /* Espacio adicional debajo del párrafo */
   line-height: 0; /* Aumenta el espaciado entre líneas */
-  font-size: ; /* Opcional: ajusta el tamaño del texto */
+  font-size: large; /* Opcional: ajusta el tamaño del texto */
 }
 
 /* ErrorMessage.css */
