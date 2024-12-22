@@ -1,0 +1,112 @@
+/* Estilo global */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f7f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Contenedor principal del blog */
+  .blog {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: inherit;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Título principal del blog */
+  .page-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 0px;
+    border-bottom: 2px solid #0073e6;
+    padding-bottom: 10px;
+  }
+  
+  /* Contenedor de cada artículo */
+  .articulo {
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #fdfdfd;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .articulo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Título del artículo */
+  .articulo-titulo {
+    font-size: 1.8rem;
+    color: --secondary-color;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .articulo-titulo:hover {
+    text-decoration: underline;
+  }
+  
+  /* Fecha del artículo */
+  .articulo-fecha {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* Extracto del artículo */
+  .articulo-extracto {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  /* Fuente del artículo */
+  .articulo-fuente {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  /* Enlace para leer más */
+  .articulo-enlace {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #ffffff;
+    background-color: #0073e6;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .articulo-enlace:hover {
+    background-color: #003d82
+  }
+  
+  /* Pie de página */
+  footer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px;
+    background-color: #0073e6;
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+  footer a {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  footer a:hover {
+    color: #ffdd57;
+  }
+  
