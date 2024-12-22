@@ -139,7 +139,7 @@ const App = () => {
 
         {/* Footer */}
         <footer className="app-footer">
-          <p>© 2024 NEXEUS Big Data | Todos los derechos reservados</p>
+          <p>© 2024 NEXEUS Big Data | {t("derechos")}</p>
           <div className="social-links">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               <img src={facebookIcon} alt="Facebook" />

@@ -23,7 +23,7 @@ const Home = ({ toggleTheme, theme }) => {
 
       {/* Sección de Features */}
       <section className="home-features">
-        <h2 className="features-title">{t("srvicios")}</h2>
+        <h2 className="features-title">{t("servicios")}</h2>
         <div className="feature">
           <img src={featureImage} alt="Feature" />
           <p>Descubre cómo la inteligencia artificial puede mejorar tu negocio.</p>

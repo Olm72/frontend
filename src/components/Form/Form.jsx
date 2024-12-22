@@ -172,7 +172,7 @@ const Form = ({ onSubmit }) => {
         {errors.phone && <ErrorMensajes simpleMessage={errors.phone} />}
       </div>
 
-      <button type="submit">{t("sumit")}</button>
+      <button type="submit">{t("submit")}</button>
     </form>
   );
 };
