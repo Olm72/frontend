@@ -1,3 +1,14 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden; /* Mantén oculto el desplazamiento horizontal */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    text-decoration: none;
+    list-style: none;
+  }
+  
 :root {
     --primary-color: #1A3E5C; /* Azul marino */
     --secondary-color: #4A90E2; /* Azul claro */
