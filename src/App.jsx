@@ -17,7 +17,7 @@ import facebookIcon from "./assets/images/logo-facebook-nexeus-big-data.png";
 import linkedInIcon from "./assets/images/logo-linkedin-nexeus-big-data.png";
 import xtwitterIcon from "./assets/images/logo-x-twitter-nexeus-big-data.png";
 import emailIcon from "./assets/images/logo-correo-electronico-nexeus-big-data.png";
-import DropdownTranslate from './Dropdown'; 
+import DropdownTranslate from './DropdownTranslate.js'; 
 import { useTranslation } from 'react-i18next';
 import ExampleComponent from './exampleComponent.js'; 
 import { Suspense } from 'react';
@@ -35,7 +35,7 @@ const App = () => {
     document.documentElement.setAttribute("data-theme", newTheme);
   };
 
-  const toggleMenu = () => {
+  const toggleMenu = () => { 
     setMenuOpen(!menuOpen);
   };
 
@@ -104,14 +104,14 @@ const App = () => {
 
           {/* Idiomas */}
            <div className="App"> 
-           <DropdownTranslate /> 
-                
+            
+            <DropdownTranslate />  
             </div>
         </header>
-        <h1>Mi Aplicación</h1>
+       <h1>Big Data</h1>
       <Suspense fallback={<div>Cargando...</div>}>
         <ExampleComponent />
-      </Suspense>
+      </Suspense> 
     </div>
 
         {/* Contenido principal */}
