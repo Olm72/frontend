@@ -54,6 +54,7 @@ body {
   padding: 0;
   background-color: var(--background-color);
   display: flex;
+  min-height: 100vh;
   flex-direction: column; /* Asegura que el contenido fluya verticalmente */
 }
 
