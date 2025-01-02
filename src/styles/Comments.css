@@ -12,7 +12,6 @@
 
 .comments-section {
   margin-top: 10px;
-  margin-bottom: ;
   background-color: var(--background-color);
   padding: 20px;
   font-size: 14px;
@@ -55,7 +54,7 @@
 
 .comment-input button {
   padding: 8px 16px; /* Ajustar para que coincida */
-  font-size: 16px; /* Mismo tamaño de texto */
+  font-size: 14px; /* Mismo tamaño de texto */
   background-color: var(--primary-color);
   color: var(--background-color);
   border: none;
