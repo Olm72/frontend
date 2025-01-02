@@ -17,7 +17,7 @@ import linkedInIcon from "./assets/images/logo-linkedin-nexeus-big-data.png";
 import xtwitterIcon from "./assets/images/logo-x-twitter-nexeus-big-data.png";
 import emailIcon from "./assets/images/logo-correo-electronico-nexeus-big-data.png";
 
-import DropdownTranslate from './Dropdown'; 
+import DropdownTranslate from './DropdownTranslate';
 import { useTranslation } from 'react-i18next';
 
 import LoadingScreen from "./components/LoadingScreen.jsx";
