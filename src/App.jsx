@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Button from "./components/Button/Button";
+
 import Error404 from "./components/ErrorMensajes/Error404";
 import Error500 from "./components/ErrorMensajes/Error500";
 import Home from "./pages/Home";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
-import Productos from "./pages/Productos";
-import Expertos from "./pages/Expertos";
-import Blog from "./pages/Blog";
 import Contacto from "./pages/Contacto";
+import Projects from "./pages/Projects.jsx";
+
 import "./styles/App.css";
 import "./styles/Button.css";
 import logo from "./assets/images/nexeus-big-data-logo.png";
@@ -17,10 +16,16 @@ import facebookIcon from "./assets/images/logo-facebook-nexeus-big-data.png";
 import linkedInIcon from "./assets/images/logo-linkedin-nexeus-big-data.png";
 import xtwitterIcon from "./assets/images/logo-x-twitter-nexeus-big-data.png";
 import emailIcon from "./assets/images/logo-correo-electronico-nexeus-big-data.png";
-import DropdownTranslate from './DropdownTranslate.js'; 
+
+import DropdownTranslate from './Dropdown'; 
 import { useTranslation } from 'react-i18next';
+
 import LoadingScreen from "./components/LoadingScreen.jsx";
 import { LoadingProvider, useLoading } from "./components/LoadingContext.jsx";
+import { UserProvider } from "./components/UserContext.jsx";
+import ProtectedRoute from "./components/ProtectedRoute";
+import RoleSwitcher from "./components/RoleSwitcher";
+
 
 const AppContent = () => {
   const { isLoading } = useLoading();
@@ -28,7 +33,6 @@ const AppContent = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   
   const { t } = useTranslation();
-
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -44,22 +48,17 @@ const AppContent = () => {
     setMenuOpen(false);
   };
 
-
   return (
-
     <div className="app-container">
-      {/* Mostrar LoadingScreen si está cargando */}
       {isLoading && <LoadingScreen />}
-
-      {/* Header */}
       <header className="app-header">
-
         <div className="header-left">
+          {/* Mostrar RoleSwitcher para pruebas */}
+          <RoleSwitcher />
           <Link to="/" className="logo-container">
             <img src={logo} alt="Nexeus Logo" className="logo" />
           </Link>
         </div>
-
         <div>
           <nav className="dropdown-menu">
             <button className="menu-toggle" onClick={toggleMenu}>
@@ -87,43 +86,49 @@ const AppContent = () => {
             )}
           </nav>
         </div>
-        {/* Enlaces */}
         <nav className="header-right">
           <ul className="nav-links">
-            <li><Link to="/productos">{t('productos')}</Link></li>
-            <li><Link to="/expertos">{t('expertos')}</Link></li>
-            <li><Link to="/blog">{t('Blog')}</Link></li>
+            <li><Link to="/proyectos">{t('Proyectos')}</Link></li>
             <li><Link to="/contacto">{t('contact')}</Link></li>
           </ul>
         </nav>
-
-        {/* Idiomas */}
         <div className="App">
           <DropdownTranslate />
-
         </div>
       </header>
-
-
-      {/* Contenido principal */}
       <div className="main-content">
         <main className="app-main">
           <Routes>
+            {/* Rutas Públicas */}
             <Route path="/" element={<Home toggleTheme={toggleTheme} theme={theme} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/contacto" element={<Contacto />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+
+            {/* Rutas Protegidas */}
+            <Route
+              path="/proyectos"
+              element={
+                <ProtectedRoute allowedRoles={["cliente", "desarrollador"]}>
+                  <Projects />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute allowedRoles={["admin"]}>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Rutas de Error */}
             <Route path="/error404" element={<Error404 />} />
             <Route path="/error500" element={<Error500 />} />
             <Route path="*" element={<Error404 />} />
-            <Route path="/productos" element={<Productos />} />
-            <Route path="/expertos" element={<Expertos />} />
-            <Route path="/blog" element={<Blog />} />
           </Routes>
         </main>
       </div>
-
-      {/* Footer */}
       <footer className="app-footer">
         <p>© 2024 NEXEUS Big Data | {t("derechos")}</p>
         <div className="social-links">
@@ -147,11 +152,12 @@ const AppContent = () => {
 
 const App = () => (
   <LoadingProvider>
-    <Router>
-      {/* Pantalla de carga */}
-      <LoadingScreen />
-      <AppContent />
-    </Router>
+    <UserProvider>
+      <Router>
+        <LoadingScreen />
+        <AppContent />
+      </Router>
+    </UserProvider>
   </LoadingProvider>
 );
 

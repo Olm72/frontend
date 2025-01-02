@@ -1,0 +1,268 @@
+/* Contenedor */
+.projects-container {
+  width: 100%; 
+  height: 100vh; 
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 70px;
+  background-image: url("../assets/images/fondo-proyectos.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; /* Centrar los elementos horizontalmente */
+  overflow-y: auto; /* Permite desplazarse si hay muchos proyectos */
+}
+
+/* Título */
+.projects-title {
+  font-size: 2.5rem;
+  color: black;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Resaltar texto */
+}
+
+/* Filtro */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.filter-container label {
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.filter-container select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  color: var(--text-color);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.filter-container select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0px 0px 4px var(--primary-color);
+}
+
+/* Lista de proyectos */
+.projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.project-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  width: 280px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  min-height: 150px; /* Altura mínima para uniformidad */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.project-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.project-actions button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.project-actions button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Botón para añadir proyectos */
+.add-project-button {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.add-project-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal-content h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.modal-content textarea {
+  resize: none; /* Evitar cambiar tamaño */
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0px 0px 4px var(--primary-color);
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.modal-content button:first-of-type {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.modal-content button:first-of-type:hover {
+  background-color: var(--secondary-color);
+}
+
+.modal-content button:last-of-type {
+  background-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.modal-content button:last-of-type:hover {
+  background-color: var(--hover-color);
+  color: white;
+}
+
+/* Notificación */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fade-in-out 3s ease-in-out;
+}
+
+.notification.success {
+  background-color: var(--primary-color);
+}
+
+.notification.error {
+  background-color: #d32f2f;
+}
+
+/* Animación para notificación */
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10%,
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
