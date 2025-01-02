@@ -1,7 +1,19 @@
+:root {
+  --primary-color: #1A3E5C; /* Azul marino */
+  --secondary-color: #4A90E2; /* Azul claro */
+  --accent-color: #3CB371; /* Verde */
+  --background-color: #F5F5F5; /* Gris claro */
+  --text-color: #4A4A4A; /* Texto gris oscuro */
+  --hover-color: #4A90E2; /* Azul Hover */
+  --neon-color: #89b9f0; /* Neón azul */
+  --border-color: #ccc;
+  --button-hover-color: #3CB371;
+}
+
 /* Contenedor */
 .projects-container {
   width: 100%; 
-  height: 100vh; 
+  min-height: 100vh; 
   margin: 0 auto;
   padding: 20px;
   padding-top: 70px;
@@ -19,10 +31,11 @@
 
 /* Título */
 .projects-title {
-  font-size: 2.5rem;
-  color: black;
+  font-size: 34px;
+  color: var(--background-color);
   text-align: center;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   font-weight: bold;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Resaltar texto */
 }
@@ -31,15 +44,15 @@
 .filter-container {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   align-items: center;
 }
 
 .filter-container label {
-  font-size: 1rem;
-  color: var(--text-color);
-  font-weight: 600;
+  font-size: 16px;
+  color: var(--background-color);
+  font-weight: 500;
+  margin-right: 10px;
 }
 
 .filter-container select {
@@ -66,6 +79,7 @@
   justify-content: center;
   align-items: flex-start;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .project-card {
@@ -101,15 +115,17 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 5px;
 }
 
 .project-actions button {
-  padding: 8px 12px;
-  font-size: 0.9rem;
-  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: var(--background-color);
   background-color: var(--primary-color);
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
@@ -122,17 +138,18 @@
 /* Botón para añadir proyectos */
 .add-project-button {
   display: block;
-  margin: 20px auto;
-  padding: 12px 24px;
+  margin: 20px;
+  padding: 8px 16px;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--background-color);
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
 .add-project-button:hover {

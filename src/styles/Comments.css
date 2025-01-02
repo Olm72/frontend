@@ -1,15 +1,29 @@
+:root {
+  --primary-color: #1A3E5C; /* Azul marino */
+  --secondary-color: #4A90E2; /* Azul claro */
+  --accent-color: #3CB371; /* Verde */
+  --background-color: #F5F5F5; /* Gris claro */
+  --text-color: #4A4A4A; /* Texto gris oscuro */
+  --hover-color: #4A90E2; /* Azul Hover */
+  --neon-color: #89b9f0; /* Neón azul */
+  --border-color: #ccc;
+  --button-hover-color: #3CB371;
+}
+
 .comments-section {
-  margin-top: 15px;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: ;
+  background-color: var(--background-color);
+  padding: 20px;
+  font-size: 14px;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .comments-section h4 {
-  font-size: 1rem;
+  font-size: 14px;
   color: var(--primary-color);
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .comments-section ul {
@@ -20,7 +34,7 @@
 }
 
 .comments-section li {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 5px;
 }
@@ -29,6 +43,7 @@
   display: flex;
   gap: 10px;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .comment-input input {
@@ -39,12 +54,14 @@
 }
 
 .comment-input button {
-  padding: 8px 15px;
+  padding: 8px 16px; /* Ajustar para que coincida */
+  font-size: 16px; /* Mismo tamaño de texto */
   background-color: var(--primary-color);
-  color: white;
+  color: var(--background-color);
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .comment-input button:hover {
