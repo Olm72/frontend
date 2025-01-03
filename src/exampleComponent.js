@@ -1,4 +1,4 @@
-{/*
+/*
 import React, { useState, useEffect, startTransition } from 'react';
 import { Suspense } from 'react';
 
@@ -31,4 +31,4 @@ function ExampleComponent() {
 }
 
 export default ExampleComponent;
-*/}
+*/
