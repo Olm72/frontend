@@ -26,11 +26,11 @@ function DropdownTranslate() {
       </button>
       {isOpen && (
         <div className="dropdown-menuTranslate">
-          <a href='#' onClick={() => changeLanguage('en')} className="dropdown-itemTranslate"> 
+          <a href='/' onClick={() => changeLanguage('en')} className="dropdown-itemTranslate"> 
             <img src={gb} alt="English" /> 
             <span>{t("span_en")}</span> 
           </a> 
-          <a href='#' onClick={() => changeLanguage('es')} className="dropdown-itemTranslate"> 
+          <a href='/' onClick={() => changeLanguage('es')} className="dropdown-itemTranslate"> 
             <img src={es} alt="Spanish" /> 
             <span>{t("span_es")} </span> 
             </a>
