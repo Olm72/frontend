@@ -9,9 +9,13 @@ const Home = ({ toggleTheme, theme }) => {
 
   return (
     <div className="home-container">
-      {/* Sección del Hero */}
-      <section className="home-hero">
-        <img src={headerImage} alt="Hero" className="hero-image" />
+      {/* Hero Section */}
+      <section
+        className="home-hero"
+        style={{
+          backgroundImage: `url(${headerImage})`,
+        }}
+      >
         <div className="hero-text">
           <h1>NEXEUS Big Data</h1>
           <p>{t("homep")}</p>
@@ -20,8 +24,6 @@ const Home = ({ toggleTheme, theme }) => {
           </Link>
         </div>
       </section>
-
-      
     </div>
   );
 };

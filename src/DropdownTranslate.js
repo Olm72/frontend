@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import './Dropdown.css'; // Archivo de estilos CSS
+import './styles/Dropdown.css'; // Archivo de estilos CSS
 import gb from "./assets/icons/gb.svg";
 import es from "./assets/icons/es.svg";
 import idioma from "./assets/images/idioma.PNG"
