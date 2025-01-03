@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Error404 from "./components/ErrorMensajes/Error404";
@@ -17,7 +17,7 @@ import linkedInIcon from "./assets/images/logo-linkedin-nexeus-big-data.png";
 import xtwitterIcon from "./assets/images/logo-x-twitter-nexeus-big-data.png";
 import emailIcon from "./assets/images/logo-correo-electronico-nexeus-big-data.png";
 
-import DropdownTranslate from './Dropdown'; 
+import DropdownTranslate from './DropdownTranslate.js'; 
 import { useTranslation } from 'react-i18next';
 
 import LoadingScreen from "./components/LoadingScreen.jsx";
@@ -47,6 +47,15 @@ const AppContent = () => {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+
+  const [message, setMessage] = useState(''); 
+  const [error, setError] = useState(null); 
+  useEffect(() => { fetch('http://localhost:8000/ping') 
+  .then(response => response.json()) 
+  .then(data => setMessage(data.message)) 
+  .catch(err => setError(err.message)); 
+
+  }, []);
 
   return (
     <div className="app-container">
@@ -128,7 +137,20 @@ const AppContent = () => {
             <Route path="*" element={<Error404 />} />
           </Routes>
         </main>
+
+        <div> 
+          <h1>Prueba de Conexión Backend</h1>
+           {error ? ( 
+            <p>Error: {error}</p>
+             ) : ( <p>Mensaje del Backend: {message}</p>
+
+              )} 
+              </div>
+        
+              
+      
       </div>
+      
       <footer className="app-footer">
         <p>© 2024 NEXEUS Big Data | {t("derechos")}</p>
         <div className="social-links">
