@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../styles/login.css";
 import backgroundImage from "../assets/images/fondo-pantalla-productos-nexeus-big-data.jpg";
 import { useTranslation } from 'react-i18next';
 
@@ -18,7 +19,6 @@ const Login = () => {
         e.preventDefault();
         setError("");
 
-        // Validación básica
         if (!email || !password || (isSignUp && (!name || !lastName))) {
             setError(t("todoVacio"));
             toast.error(t("todoVacio"));
@@ -48,15 +48,12 @@ const Login = () => {
 
     return (
         <div
-            className="login-container"
+            className="main-container"
             style={{
                 backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: "100vh",
             }}
         >
-            <form onSubmit={handleSubmit} className="login-form">
+            <form onSubmit={handleSubmit} className="form-container">
                 <h2>{isSignUp ? t("registrarse") : t("iniciarSesion")}</h2>
                 {error && <p className="error-message">{error}</p>}
 
@@ -101,13 +98,10 @@ const Login = () => {
 
                 <button type="submit">{isSignUp ? t("registrarse") : t("iniciarSesion")}</button>
 
-                <p style={{ textAlign: "center", marginTop: "10px" }}>
+                <p>
                     {isSignUp ? t("preguntaRegistro1") : t("preguntaRegistro2")}{" "}
-                    <span
-                        style={{ color: "#007BFF", cursor: "pointer", fontWeight: "bold" }}
-                        onClick={() => setIsSignUp(!isSignUp)}
-                    >
-                        {isSignUp ? t("iniciarSesion") : t("registrarse") }
+                    <span onClick={() => setIsSignUp(!isSignUp)}>
+                        {isSignUp ? t("iniciarSesion") : t("registrarse")}
                     </span>
                 </p>
             </form>
