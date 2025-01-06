@@ -279,7 +279,7 @@ body {
   height: 60px;
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
   border-top-left-radius: 0px;
-  border-top-right-radius: 25px;
+  border-top-right-radius: 0px;
 }
 
 /* Centramos el texto en el footer */
