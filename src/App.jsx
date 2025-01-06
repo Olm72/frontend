@@ -31,8 +31,25 @@ const AppContent = () => {
   const { isLoading } = useLoading();
   const [theme, setTheme] = useState("light");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [pingMessage, setPingMessage] = useState(""); // Estado para guardar el mensaje de ping 
   
-  const { t } = useTranslation();
+  const { t } = useTranslation(); 
+  
+  useEffect(() => { 
+    // Hacer solicitud al backend para obtener el mensaje de ping
+   fetch("http://127.0.0.1:8000/ping") 
+    .then(response => { 
+      if (!response.ok) { 
+        throw new Error('Network response was not ok'); 
+      } 
+      return response.json(); 
+    }) 
+    .then(data => { 
+      console.log("Ping response:", data);
+       setPingMessage(data.message); 
+      }) 
+      .catch(error => console.error("Error fetching ping:", error)); 
+    }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -47,15 +64,6 @@ const AppContent = () => {
   const closeMenu = () => {
     setMenuOpen(false);
   };
-
-  const [message, setMessage] = useState(''); 
-  const [error, setError] = useState(null); 
-  useEffect(() => { fetch('http://localhost:8000/ping') 
-  .then(response => response.json()) 
-  .then(data => setMessage(data.message)) 
-  .catch(err => setError(err.message)); 
-
-  }, []);
 
   return (
     <div className="app-container">
@@ -97,7 +105,7 @@ const AppContent = () => {
         </div>
         <nav className="header-right">
           <ul className="nav-links">
-            <li><Link to="/proyectos">{t('Proyectos')}</Link></li>
+            <li><Link to="/proyectos">{t('proyectos')}</Link></li>
             <li><Link to="/contacto">{t('contact')}</Link></li>
           </ul>
         </nav>
@@ -109,7 +117,7 @@ const AppContent = () => {
         <main className="app-main">
           <Routes>
             {/* Rutas Públicas */}
-            <Route path="/" element={<Home toggleTheme={toggleTheme} theme={theme} />} />
+            <Route path="/" element={<Home toggleTheme={toggleTheme} theme={theme} />} />  {/* Home como página principal */}
             <Route path="/login" element={<Login />} />
             <Route path="/contacto" element={<Contacto />} />
 
@@ -136,21 +144,14 @@ const AppContent = () => {
             <Route path="/error500" element={<Error500 />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
+
+          {/* Mostrar el mensaje de ping en la página principal */} 
+          <div> 
+            <h1>Ping Response</h1> 
+            <p>{pingMessage}</p> 
+          </div>
         </main>
-
-        <div> 
-          <h1>Prueba de Conexión Backend</h1>
-           {error ? ( 
-            <p>Error: {error}</p>
-             ) : ( <p>Mensaje del Backend: {message}</p>
-
-              )} 
-              </div>
-        
-              
-      
       </div>
-      
       <footer className="app-footer">
         <p>© 2024 NEXEUS Big Data | {t("derechos")}</p>
         <div className="social-links">
@@ -182,7 +183,5 @@ const App = () => (
     </UserProvider>
   </LoadingProvider>
 );
-
-
 
 export default App;

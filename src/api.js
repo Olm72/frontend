@@ -1,4 +1,5 @@
-/* import React, { useEffect, useState } from 'react';
+// src/App.js
+import React, { useEffect, useState } from 'react';
 import { fetchUsers } from './api';
 
 function App() {
@@ -24,4 +25,4 @@ function App() {
   );
 }
 
-export default App;*/
+export default App;
